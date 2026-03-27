@@ -27,7 +27,7 @@ function DiscoverLink() {
 export function WhoWeAre() {
   return (
     <section aria-label="Who we are" className="bg-white">
-      <div className="flex w-full flex-col gap-10 px-4 py-10 xl:mx-auto xl:max-w-[1720px] xl:grid xl:grid-cols-[710px_minmax(0,1fr)] xl:items-start xl:gap-0 xl:px-0">
+      <div className="flex w-full flex-col gap-10 px-4 py-10 xl:mx-auto xl:max-w-[1440px] xl:grid xl:grid-cols-[710px_minmax(0,1fr)] xl:items-start xl:gap-0 xl:px-0">
         <div className="flex w-full flex-col gap-6 xl:order-2 xl:min-w-0 xl:pt-[34px] xl:pl-[80px] xl:pr-[80px] xl:gap-14">
           <div className="flex items-center gap-6">
             <span className="shrink-0 text-[16px] font-medium text-[#00a651] uppercase">

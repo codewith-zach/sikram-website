@@ -34,7 +34,7 @@ const features = [
 export function HomeFeatures() {
   return (
     <section aria-label="Sikram Africa features" className="bg-white">
-      <div className="mx-auto w-full max-w-[1720px] px-4 py-[60px] sm:px-6 md:px-8 xl:px-[80px]">
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-[60px] sm:px-6 md:px-8 xl:px-[80px]">
         <div className="grid grid-cols-2 gap-x-5 gap-y-10 xl:flex xl:items-start xl:justify-between xl:gap-8">
           {features.map((feature) => (
             <article

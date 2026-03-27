@@ -3,7 +3,7 @@ import Image from "next/image";
 export function HomeHero() {
   return (
     <section className="overflow-hidden bg-(image:--hero-gradient)">
-      <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-8 md:px-12 xl:px-[76px]">
+      <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 xl:px-[76px]">
         <div className="relative min-h-[calc(100svh-57px)] pb-[82vw] pt-9 sm:pb-[66vw] sm:pt-10 md:pb-[34vw] md:pt-12 xl:min-h-[calc(100vh-81px)] xl:pb-0 xl:pt-[56px]">
           <div className="relative z-10 flex max-w-lg flex-col items-center text-center md:max-w-xl md:items-start md:text-left xl:max-w-2xl">
             <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-xs text-white backdrop-blur-[10px] sm:px-5 sm:text-sm md:px-7 md:py-3 md:text-base">

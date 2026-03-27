@@ -63,7 +63,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/8 bg-(image:--hero-gradient) shadow-[0_1px_0_rgb(255_255_255_/_0.18)]">
+    <header className="sticky top-0 z-50 bg-(image:--hero-gradient)">
       <div className="mx-auto w-full max-w-[1720px] px-4 py-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between xl:grid xl:grid-cols-[auto_1fr_auto] xl:gap-8">
           <Link

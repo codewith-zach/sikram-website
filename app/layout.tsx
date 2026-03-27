@@ -16,6 +16,11 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Sikram Africa",
   description: "Sikram Africa website",
+  icons: {
+    icon: "/images/brand/logo.png",
+    shortcut: "/images/brand/logo.png",
+    apple: "/images/brand/logo.png",
+  },
 };
 
 export default function RootLayout({

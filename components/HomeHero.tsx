@@ -41,7 +41,7 @@ export function HomeHero() {
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 24 24"
-                  className="ml-3 h-5 w-5 text-[#3cb66b]"
+                  className="ml-3 h-5 w-5 text-[#00A651]"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="3"

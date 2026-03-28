@@ -29,7 +29,7 @@ export function HomeCta() {
             <div className="w-full max-w-[456px] rounded-[20px] bg-white px-6 py-[52px] shadow-[0_22px_60px_rgba(0,0,0,0.16)] md:max-w-[620px] md:rounded-[18px] md:px-[40px] md:py-[58px]">
               <h2 className="max-w-[22rem] font-display text-[24px] leading-[1.05] font-bold tracking-[-0.05em] text-black md:max-w-[29rem] md:text-[40px] md:leading-[1.02]">
                 Ready to Experience the Art of{" "}
-                <span className="text-[#56b76c]">Living in Africa?</span>
+                <span className="text-[#00A651]">Living in Africa?</span>
               </h2>
 
               <p className="mt-10 max-w-[22rem] font-sans text-[16px] leading-[1.6] tracking-[-0.02em] text-[#2f2f2f] md:max-w-[31rem] md:text-[17px] md:leading-[1.5]">
@@ -40,7 +40,7 @@ export function HomeCta() {
 
               <button
                 type="button"
-                className="mt-10 inline-flex h-[70px] w-full items-center justify-center rounded-[14px] bg-[#4faa60] px-8 font-sans text-[17px] font-semibold text-white transition hover:bg-[#469756] md:mt-11 md:h-[58px] md:w-[271px] md:rounded-[12px] md:text-[16px]"
+                className="mt-10 inline-flex h-[70px] w-full items-center justify-center rounded-[14px] bg-[#00A651] px-8 font-sans text-[17px] font-semibold text-white transition hover:bg-[#00A651]/90 md:mt-11 md:h-[58px] md:w-[271px] md:rounded-[12px] md:text-[16px]"
               >
                 Contact Us Today
               </button>

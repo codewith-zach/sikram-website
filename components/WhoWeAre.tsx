@@ -4,7 +4,7 @@ function DiscoverLink() {
   return (
     <button
       type="button"
-      className="inline-flex items-center gap-[10px] text-[16px] font-medium text-[#00a651] uppercase"
+      className="inline-flex items-center gap-[10px] text-[16px] font-medium text-[#00A651] uppercase"
     >
       <span>DISCOVER SKIRAM AFRICA</span>
       <svg
@@ -30,16 +30,16 @@ export function WhoWeAre() {
       <div className="flex w-full flex-col gap-10 px-4 py-10 xl:mx-auto xl:max-w-[1440px] xl:grid xl:grid-cols-[710px_minmax(0,1fr)] xl:items-start xl:gap-0 xl:px-0">
         <div className="flex w-full flex-col gap-6 xl:order-2 xl:min-w-0 xl:pt-[34px] xl:pl-[80px] xl:pr-[80px] xl:gap-14">
           <div className="flex items-center gap-6">
-            <span className="shrink-0 text-[16px] font-medium text-[#00a651] uppercase">
+            <span className="shrink-0 text-[16px] font-medium text-[#00A651] uppercase">
               WHO WE ARE
             </span>
-            <div className="h-px flex-1 bg-[#00a651]/50" />
+            <div className="h-px flex-1 bg-[#00A651]/50" />
           </div>
 
           <div className="flex flex-col gap-6">
             <h2 className="font-display text-[24px] leading-[1.18] font-bold text-black xl:max-w-[580px] xl:text-[40px] xl:leading-[1.18]">
               <span>We Don&apos;t Just Build Houses. We Create </span>
-              <span className="text-[#00a651]">the Good Life</span>
+              <span className="text-[#00A651]">the Good Life</span>
               <span>.</span>
             </h2>
 

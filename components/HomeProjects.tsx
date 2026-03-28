@@ -107,11 +107,11 @@ export function HomeProjects() {
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-8 sm:px-6 md:px-8 xl:px-[80px] xl:py-[80px]">
         <div className="flex w-full max-w-[320px] flex-col items-center gap-4">
           <div className="flex w-full items-center gap-6">
-            <div className="h-px flex-1 bg-[#7ad89e]" />
-            <span className="shrink-0 text-[10px] font-medium uppercase tracking-[0.02em] text-[#00a651] md:text-[16px]">
+            <div className="h-px flex-1 bg-[#00A651]/35" />
+            <span className="shrink-0 text-[10px] font-medium uppercase tracking-[0.02em] text-[#00A651] md:text-[16px]">
               Featured Projects
             </span>
-            <div className="h-px flex-1 bg-[#7ad89e]" />
+            <div className="h-px flex-1 bg-[#00A651]/35" />
           </div>
           <h2 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] text-black md:text-[40px]">
             View our Work

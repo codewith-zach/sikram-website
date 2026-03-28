@@ -60,7 +60,7 @@ function DifferenceCard({
 }: DifferenceItem) {
   return (
     <article className="px-6 py-8 md:flex md:flex-col md:items-center md:text-center xl:block xl:min-h-[262px] xl:px-6 xl:pt-12 xl:pb-10 xl:text-left">
-      <div className="text-[#62bf7b]">
+      <div className="text-[#00A651]">
         <Icon className="h-5 w-5 xl:h-6 xl:w-6" strokeWidth={1.9} aria-hidden="true" />
       </div>
       <h3 className="mt-8 font-display text-[18px] leading-[1.05] font-semibold tracking-[-0.03em] text-black xl:mt-9 xl:text-[19px]">
@@ -80,10 +80,10 @@ export function SikramDifference() {
         <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_315px] xl:items-start xl:gap-16">
           <div>
             <div className="flex items-center gap-4 xl:gap-7">
-              <span className="shrink-0 text-[11px] font-medium uppercase tracking-[0.02em] text-[#62bf7b] xl:text-[15px]">
+              <span className="shrink-0 text-[11px] font-medium uppercase tracking-[0.02em] text-[#00A651] xl:text-[15px]">
                 The Sikram Difference
               </span>
-              <div className="h-px w-[64px] bg-[#62bf7b]/70 xl:w-[143px]" />
+              <div className="h-px w-[64px] bg-[#00A651]/70 xl:w-[143px]" />
             </div>
             <h2 className="mt-4 max-w-[17rem] font-display text-[24px] leading-[0.98] font-bold tracking-[-0.05em] text-black xl:mt-6 xl:max-w-none xl:text-[40px]">
               What Sets Us Apart

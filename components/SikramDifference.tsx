@@ -59,14 +59,14 @@ function DifferenceCard({
   title,
 }: DifferenceItem) {
   return (
-    <article className="px-6 py-8 md:px-8 md:py-10 lg:px-10 xl:min-h-[262px] xl:px-6 xl:pt-12 xl:pb-10">
+    <article className="px-6 py-8 md:flex md:flex-col md:items-center md:text-center xl:block xl:min-h-[262px] xl:px-6 xl:pt-12 xl:pb-10 xl:text-left">
       <div className="text-[#62bf7b]">
         <Icon className="h-5 w-5 xl:h-6 xl:w-6" strokeWidth={1.9} aria-hidden="true" />
       </div>
       <h3 className="mt-8 font-display text-[18px] leading-[1.05] font-semibold tracking-[-0.03em] text-black xl:mt-9 xl:text-[19px]">
         {title}
       </h3>
-      <p className="mt-4 max-w-[19rem] font-display text-[14px] leading-[1.45] text-[#5d5d5d] md:max-w-[32rem] xl:max-w-[18.75rem] xl:text-[16px] xl:leading-[1.42]">
+      <p className="mt-4 max-w-[19rem] font-display text-[14px] leading-[1.45] text-[#5d5d5d] md:mx-auto md:max-w-[32rem] xl:mx-0 xl:max-w-[18.75rem] xl:text-[16px] xl:leading-[1.42]">
         {body}
       </p>
     </article>
@@ -90,7 +90,7 @@ export function SikramDifference() {
             </h2>
           </div>
 
-          <p className="mt-4 max-w-[19rem] font-display text-[14px] leading-[1.48] text-[#666] xl:mt-0 xl:max-w-[315px] xl:pt-[2px] xl:text-[16px] xl:leading-[1.45]">
+          <p className="mt-4 font-display text-[14px] leading-[1.48] text-[#666] xl:mt-0 xl:max-w-[315px] xl:pt-[2px] xl:text-[16px] xl:leading-[1.45]">
             Six principles guide everything we build - from the communities we
             design to the standards we absolutely refuse to compromise on.
           </p>

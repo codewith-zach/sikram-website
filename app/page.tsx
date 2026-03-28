@@ -1,3 +1,4 @@
+import { HomeCta } from "@/components/HomeCta";
 import { HomeHero } from "@/components/HomeHero";
 import { HomeFeatures } from "@/components/HomeFeatures";
 import { HomeProjects } from "@/components/HomeProjects";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Sustainability />
       <HomeProjects />
       <SikramDifference />
+      <HomeCta />
     </>
   );
 }

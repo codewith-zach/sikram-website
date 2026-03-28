@@ -124,13 +124,13 @@ export function ProjectsSection() {
           ))}
 
           <article className="group overflow-hidden rounded-[10px] bg-[#2d2d2d] xl:grid xl:grid-cols-[1fr_1fr]">
-            <div className="relative h-[420px] overflow-hidden xl:h-[705px]">
+            <div className="relative h-[420px] overflow-hidden xl:h-full xl:min-h-[705px]">
               <Image
                 src="/images/home/projects/ariel.png"
                 alt="Exterior view of Ariel Terrace"
                 fill
                 sizes="(min-width: 1280px) 640px, 100vw"
-                className="object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04] group-focus-within:scale-[1.04]"
+                className="object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04] group-focus-within:scale-[1.04] xl:h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/45 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 xl:hidden" />
             </div>

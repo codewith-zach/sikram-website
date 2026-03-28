@@ -8,7 +8,7 @@ const sustainabilityPoints = [
   "Open recreational areas, including swimming pools and playgrounds",
 ] as const;
 
-export function Sustainability() {
+export function SustainabilitySection() {
   return (
     <section aria-label="Sustainability" className="bg-white">
       <div className="mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-6 md:px-8 xl:px-[80px] xl:py-16">

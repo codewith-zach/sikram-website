@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function HomeHero() {
+export function HeroSection() {
   return (
     <section className="overflow-hidden bg-(image:--hero-gradient)">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 xl:px-[76px]">

@@ -24,7 +24,7 @@ function DiscoverLink() {
   );
 }
 
-export function WhoWeAre() {
+export function WhoWeAreSection() {
   return (
     <section aria-label="Who we are" className="bg-white">
       <div className="flex w-full flex-col gap-10 px-4 py-10 xl:mx-auto xl:max-w-[1440px] xl:grid xl:grid-cols-[710px_minmax(0,1fr)] xl:items-start xl:gap-0 xl:px-0">

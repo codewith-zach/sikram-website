@@ -1,7 +1,6 @@
-import { Footer } from "@/components/Footer";
+import { Footer, Navbar } from "@/components/shared";
 import type { Metadata } from "next";
 import { Sora, Space_Grotesk } from "next/font/google";
-import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({

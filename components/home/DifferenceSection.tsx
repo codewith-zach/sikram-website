@@ -73,7 +73,7 @@ function DifferenceCard({
   );
 }
 
-export function SikramDifference() {
+export function DifferenceSection() {
   return (
     <section aria-label="The Sikram difference" className="bg-white">
       <div className="mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-5 md:px-6 xl:px-[80px] xl:py-[72px]">

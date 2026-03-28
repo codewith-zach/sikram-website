@@ -31,7 +31,7 @@ const features = [
   },
 ] as const;
 
-export function HomeFeatures() {
+export function FeaturesSection() {
   return (
     <section aria-label="Sikram Africa features" className="bg-white">
       <div className="mx-auto w-full max-w-[1440px] px-4 py-[60px] sm:px-6 md:px-8 xl:px-[80px]">

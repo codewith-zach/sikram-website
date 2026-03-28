@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function HomeCta() {
+export function CallToActionSection() {
   return (
     <section aria-label="Contact Sikram Africa" className="bg-white">
       <div className="mx-auto w-full max-w-[1440px] overflow-hidden">

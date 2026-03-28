@@ -101,7 +101,7 @@ function ProjectCard({
   );
 }
 
-export function HomeProjects() {
+export function ProjectsSection() {
   return (
     <section aria-label="Featured projects" className="bg-white">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-8 sm:px-6 md:px-8 xl:px-[80px] xl:py-[80px]">

@@ -1,3 +1,4 @@
+import { CallToActionSection } from "@/components/about/CallToActionSection";
 import { CoreValuesSection } from "@/components/about/CoreValuesSection";
 import { EcoBannerSection } from "@/components/about/EcoBannerSection";
 import { HeroSection } from "@/components/about/HeroSection";
@@ -14,6 +15,7 @@ export default function AboutPage() {
       <EcoBannerSection />
       <CoreValuesSection />
       <TeamSection />
+      <CallToActionSection />
     </>
   );
 }

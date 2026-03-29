@@ -1,7 +1,7 @@
 export function PhilosophySection() {
   return (
     <section aria-label="Philosophy" className="bg-white">
-      <div className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 sm:py-18 md:px-12 md:py-20 xl:grid xl:grid-cols-[minmax(0,710px)_minmax(0,1fr)] xl:gap-0 xl:px-[80px] xl:py-[86px]">
+      <div className="mx-auto w-full max-w-[1440px] px-4 pt-14 pb-20 sm:px-8 sm:pt-18 sm:pb-24 md:px-12 md:pt-20 md:pb-28 xl:grid xl:grid-cols-[minmax(0,710px)_minmax(0,1fr)] xl:gap-0 xl:px-[80px] xl:pt-[86px] xl:pb-[128px]">
         <div className="xl:pr-[86px]">
           <div className="flex items-center gap-6">
             <span className="shrink-0 text-[16px] font-medium uppercase text-[#00A651]">

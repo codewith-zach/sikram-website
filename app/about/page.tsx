@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/about/HeroSection";
+import { MissionVisionSection } from "@/components/about/MissionVisionSection";
 import { PhilosophySection } from "@/components/about/PhilosophySection";
 
 export default function AboutPage() {
@@ -6,6 +7,7 @@ export default function AboutPage() {
     <>
       <HeroSection />
       <PhilosophySection />
+      <MissionVisionSection />
     </>
   );
 }

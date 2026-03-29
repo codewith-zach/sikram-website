@@ -81,7 +81,7 @@ export function Navbar() {
     : "sticky top-0 z-50 bg-(image:--hero-gradient)";
   const brandClassName = isLightVariant ? "text-[#121212]" : "text-white";
   const ctaClassName = isLightVariant
-    ? "hidden min-w-[190px] items-center justify-center rounded-[14px] bg-[#4da65a] px-8 py-4 text-sm font-bold uppercase tracking-[0.01em] text-white transition hover:bg-[#42904d] xl:inline-flex"
+    ? "hidden min-w-[190px] items-center justify-center rounded-[14px] bg-[#00A651] px-8 py-4 text-sm font-bold uppercase tracking-[0.01em] text-white transition hover:bg-[#00A651]/90 xl:inline-flex"
     : "hidden min-w-[126px] select-none items-center justify-center rounded-[8px] bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-[-0.01em] text-[#3f3f3f] xl:inline-flex";
   const menuButtonClassName = isLightVariant
     ? "flex h-10 w-10 flex-col items-center justify-center gap-[4px] rounded-xl transition hover:bg-black/5 xl:hidden"

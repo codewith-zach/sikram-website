@@ -1,7 +1,10 @@
 import { Footer, Navbar } from "@/components/shared";
 import type { Metadata } from "next";
-import { Sora, Space_Grotesk } from "next/font/google";
+import { Sora, Space_Grotesk, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -29,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${sora.variable} h-full antialiased`}>
+    <html lang="en" className={cn("h-full", "antialiased", spaceGrotesk.variable, sora.variable, "font-sans", geist.variable)}>
       <body className="min-h-full">
         <div className="flex min-h-screen flex-col">
           <Navbar />

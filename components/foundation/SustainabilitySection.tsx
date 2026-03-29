@@ -1,37 +1,13 @@
 import Image from "next/image";
 
-function DiscoverLink() {
-  return (
-    <button
-      type="button"
-      className="inline-flex items-center gap-[10px] text-[16px] font-medium text-[#00A651] uppercase"
-    >
-      <span>DISCOVER SKIRAM AFRICA</span>
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
-    </button>
-  );
-}
-
-export function WhoWeAreSection() {
+export function SustainabilitySection() {
   return (
     <section aria-label="Who we are" className="bg-white">
       <div className="flex w-full flex-col gap-10 px-4 py-10 xl:mx-auto xl:max-w-[1440px] xl:grid xl:grid-cols-[710px_minmax(0,1fr)] xl:items-start xl:gap-0 xl:px-0">
         <div className="flex w-full flex-col gap-6 xl:order-2 xl:min-w-0  xl:pl-[80px] xl:pr-[80px] xl:gap-14">
           <div className="flex items-center gap-6">
             <span className="shrink-0 text-[16px] font-medium text-[#00A651] uppercase">
-              WHO WE ARE
+              SUSTAINABILITY
             </span>
             <div className="h-px flex-1 bg-[#00A651]/50" />
           </div>
@@ -59,8 +35,6 @@ export function WhoWeAreSection() {
               </p>
             </div>
           </div>
-
-          <DiscoverLink />
         </div>
 
         <div className="w-full xl:order-1 xl:w-[710px] xl:shrink-0">
@@ -75,7 +49,7 @@ export function WhoWeAreSection() {
 
           <div className="relative hidden h-[750px] w-[710px] xl:block">
             <Image
-              src="/images/home/who_we_are/building.svg"
+              src="/images/foundation/sustainability.png"
               alt="Exterior of a modern apartment building with green balconies"
               fill
               className="object-contain"

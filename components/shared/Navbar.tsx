@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useSyncExternalStore, useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -74,7 +74,19 @@ function MobileNavItem({
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLightVariant = pathname !== "/";
+  const scrollY = useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") {
+        return () => {};
+      }
+      window.addEventListener("scroll", onStoreChange, { passive: true });
+      return () => window.removeEventListener("scroll", onStoreChange);
+    },
+    () => (typeof window === "undefined" ? 0 : window.scrollY),
+    () => 0,
+  );
+
+  const isLightVariant = pathname !== "/" || scrollY > 10;
 
   const headerClassName = isLightVariant
     ? "sticky top-0 z-50 border-b border-black/6 bg-white"

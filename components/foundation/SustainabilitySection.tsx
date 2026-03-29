@@ -40,7 +40,7 @@ export function SustainabilitySection() {
         <div className="w-full xl:order-1 xl:w-[710px] xl:shrink-0">
           <div className="relative h-[536px] w-full overflow-hidden xl:hidden">
             <Image
-              src="/images/home/who_we_are/building.svg"
+              src="/images/foundation/sustainability.png"
               alt="Exterior of a modern apartment building with green balconies"
               fill
               className="object-cover object-left"

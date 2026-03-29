@@ -1,3 +1,4 @@
+import { CoreValuesSection } from "@/components/about/CoreValuesSection";
 import { EcoBannerSection } from "@/components/about/EcoBannerSection";
 import { HeroSection } from "@/components/about/HeroSection";
 import { MissionVisionSection } from "@/components/about/MissionVisionSection";
@@ -10,6 +11,7 @@ export default function AboutPage() {
       <PhilosophySection />
       <MissionVisionSection />
       <EcoBannerSection />
+      <CoreValuesSection />
     </>
   );
 }

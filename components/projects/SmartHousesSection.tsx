@@ -4,19 +4,19 @@ const houseCards = [
   {
     alt: "Exterior view of Bannah House",
     location: "Kpaja, Monrovia",
-    src: "/images/projects/bannah_house.png",
+    src: "/images/projects/smart_homes/bannah_house.png",
     title: "Bannah House",
   },
   {
     alt: "Exterior view of Vlandee Guest House",
     location: "Kpaja Johnsonville, Paynesville",
-    src: "/images/projects/vlandee_house.png",
+    src: "/images/projects/smart_homes/vlandee_house.png",
     title: "Vlandee Guest House",
   },
   {
     alt: "Exterior view of Zulu House",
     location: "Kpaja, Monrovia",
-    src: "/images/projects/zulu_house.png",
+    src: "/images/projects/smart_homes/zulu_house.png",
     title: "Zulu House",
   },
 ] as const;

@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const projectCards = [
   {
     alt: "Exterior view of Anaya Terrace",
+    href: "/projects/anaya-terrace",
     imageClassName: "object-center",
     location: "BoysTown, Upper Margibi",
     src: "/images/home/projects/anaya.png",
@@ -63,11 +65,12 @@ function LocationIcon() {
 function ProjectCard({
   alt,
   imageClassName,
+  href,
   location,
   src,
   title,
 }: (typeof projectCards)[number]) {
-  return (
+  const card = (
     <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
       <Image
         src={src}
@@ -89,16 +92,23 @@ function ProjectCard({
           </div>
         </div>
 
-        <button
-          type="button"
-          className="hidden items-center gap-3 self-end text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:inline-flex"
-        >
+        <span className="hidden items-center gap-3 self-end text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:inline-flex">
           <span className="whitespace-nowrap">View Project</span>
           <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
-        </button>
+        </span>
       </div>
     </article>
   );
+
+  if (href) {
+    return (
+      <Link href={href} aria-label={`View ${title}`}>
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 }
 
 export function ProjectsSection() {

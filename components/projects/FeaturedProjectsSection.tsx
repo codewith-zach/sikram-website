@@ -1,21 +1,30 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const projectCards = [
   {
     alt: "Exterior view of Anaya Terrace",
+    description:
+      "Anaya Terrace is a boutique row house development in BoysTown, Upper Margibi, Liberia - a small, carefully designed residential community comprising four homes, each offering comfortable, well-finished living spaces for families and individuals seeking quality and comfort.",
     href: "/projects/anaya-terrace",
     imageClassName: "object-center",
     location: "BoysTown, Upper Margibi",
     src: "/images/home/projects/anaya.png",
+    tagline: "Quiet Living, Thoughtfully Designed.",
     title: "Anaya Terrace",
   },
   {
     alt: "Interior view of Anaro Estate",
+    description:
+      "Anaro Estate is Sikram Africa's most ambitious development to date: a premier mixed-use golfing community set on 35 acres of land in Lower Margibi, Liberia, just five minutes from Roberts International Airport.",
     href: "/projects/anaro-estate",
     imageClassName: "object-center",
     location: "Lower Margibi",
     src: "/images/home/projects/anaro.png",
+    tagline: "Live. Work. Play. All in One Place.",
     title: "Anaro Estate",
   },
   {
@@ -66,12 +75,27 @@ function LocationIcon() {
 
 function ProjectCard({
   alt,
+  description,
   imageClassName,
   href,
   location,
   src,
+  tagline,
   title,
-}: (typeof projectCards)[number]) {
+  enableHoverOverlay,
+}: {
+  alt: string;
+  description?: string;
+  imageClassName: string;
+  href: string;
+  location: string;
+  src: string;
+  tagline?: string;
+  title: string;
+  enableHoverOverlay: boolean;
+}) {
+  const canShowHoverPanel = enableHoverOverlay && Boolean(description);
+
   const card = (
     <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
       <Image
@@ -82,8 +106,21 @@ function ProjectCard({
         className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] group-focus-within:scale-[1.045] ${imageClassName}`}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90" />
+      <div
+        className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 ${
+          canShowHoverPanel
+            ? "group-hover:opacity-70 group-focus-within:opacity-70"
+            : ""
+        }`}
+      />
 
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8">
+      <div
+        className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 ${
+          canShowHoverPanel
+            ? "transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0"
+            : ""
+        }`}
+      >
         <div className="min-w-0 text-white">
           <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
             {title}
@@ -99,6 +136,39 @@ function ProjectCard({
           <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
         </span>
       </div>
+
+      {description ? (
+        <div
+          className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-500 ease-out ${
+            canShowHoverPanel
+              ? "group-hover:translate-y-0 group-focus-within:translate-y-0"
+              : ""
+          }`}
+        >
+          <div className="grid min-h-[220px] gap-3 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
+            <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
+              {title}
+            </h3>
+
+            {tagline && (
+              <p className="font-display text-[15px] leading-[1.5] md:text-[18px] xl:text-[20px]">
+                {tagline}
+              </p>
+            )}
+
+            <p className="max-w-[800px] text-[15px] leading-[1.5] md:text-[18px] xl:text-[20px]">
+              {description}
+            </p>
+          </div>
+        </div>
+      ) : null}
+
+      {canShowHoverPanel && (
+        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:bottom-8 md:right-10">
+          <span className="whitespace-nowrap">View Project</span>
+          <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
+        </div>
+      )}
     </article>
   );
 
@@ -114,8 +184,36 @@ function ProjectCard({
 }
 
 export function FeaturedProjectsSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [hasScrolledIntoView, setHasScrolledIntoView] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || hasScrolledIntoView) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setHasScrolledIntoView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, [hasScrolledIntoView]);
+
   return (
-    <section aria-label="Featured projects" className="bg-white">
+    <section
+      ref={sectionRef}
+      aria-label="Featured projects"
+      className="bg-white"
+    >
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-8 sm:px-6 md:px-8 xl:px-[80px] xl:py-[80px]">
         <div className="flex w-full max-w-[320px] flex-col items-center gap-4">
           <div className="flex w-full items-center gap-6">
@@ -132,7 +230,11 @@ export function FeaturedProjectsSection() {
 
         <div className="flex w-full flex-col gap-6">
           {projectCards.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <ProjectCard
+              key={project.title}
+              {...project}
+              enableHoverOverlay={hasScrolledIntoView}
+            />
           ))}
         </div>
       </div>

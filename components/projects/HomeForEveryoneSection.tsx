@@ -3,21 +3,29 @@ import Image from "next/image";
 const audienceCards = [
   {
     alt: "Two young professionals reviewing a tablet",
+    description:
+      "Ambitious, driven, and ready for a home that matches your momentum. Our property developments offer the luxury, planet-smart design, and community you have worked for, at a value that makes smart financial sense for your future.",
     src: "/images/projects/home_for_everyone/img1.png",
     title: "Young Professionals",
   },
   {
     alt: "A family preparing food together",
+    description:
+      "Your family deserves space, safety, and a sustainable community where children can grow, neighbours become friends, and every day feels like the life you always wanted.",
     src: "/images/projects/home_for_everyone/img2.png",
     title: "Families",
   },
   {
     alt: "Two professionals discussing an investment portfolio",
+    description:
+      "You want to invest in real estate in Liberia, but you need an environmentally conscious property developer you can trust from a distance. Sikram Africa offers full transparency, professional management, and homes built to a global standard you can be proud of, wherever in the world you are.",
     src: "/images/projects/home_for_everyone/img3.png",
     title: "Diaspora Investors",
   },
   {
     alt: "A high-net-worth individual using a smartphone",
+    description:
+      "Class, exclusivity, and a return on your real estate investment that reflects your standing. From the golfing community at Anaro Estate to the luxury retreat of Vlandee Guest Houses, Sikram delivers without compromise.",
     src: "/images/projects/home_for_everyone/img4.png",
     title: "High-Net-Worth\nIndividuals",
   },
@@ -25,9 +33,15 @@ const audienceCards = [
 
 function AudienceCard({
   alt,
+  description,
   src,
   title,
-}: (typeof audienceCards)[number]) {
+}: {
+  alt: string;
+  description: string;
+  src: string;
+  title: string;
+}) {
   return (
     <article className="group relative h-[340px] overflow-hidden rounded-[14px] sm:h-[380px] xl:h-[420px]">
       <Image
@@ -37,12 +51,26 @@ function AudienceCard({
         sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
         className="object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04] group-focus-within:scale-[1.04]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90" />
+      <div className="absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60 group-focus-within:opacity-60" />
 
-      <div className="absolute inset-x-0 bottom-0 px-5 pb-6 text-white sm:px-6 sm:pb-7">
+      {/* Default content (fades on hover) */}
+      <div className="absolute inset-x-0 bottom-0 px-5 pb-6 text-white transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 sm:px-6 sm:pb-7">
         <h3 className="whitespace-pre-line font-display text-[24px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[26px] xl:text-[28px]">
           {title}
         </h3>
+      </div>
+
+      {/* Hover panel */}
+      <div className="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0">
+        <div className="flex flex-col gap-3 px-5 pb-6 pt-4 text-white sm:px-6 sm:pb-7">
+          <h3 className="whitespace-pre-line font-display text-[24px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[26px] xl:text-[28px]">
+            {title}
+          </h3>
+          <p className="text-[14px] leading-[1.5] md:text-[16px] xl:text-[18px]">
+            {description}
+          </p>
+        </div>
       </div>
     </article>
   );

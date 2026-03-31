@@ -36,25 +36,29 @@ export function DetailsSection() {
 
             <div className="space-y-3">
               <h1 className="font-display text-[34px] leading-[1.05] font-bold tracking-[-0.03em] text-black sm:text-[40px]">
-                Anaya Terrace
+                Anaro Estate
               </h1>
               <p className="font-display text-[16px] font-semibold text-black">
                 Quiet Living, Thoughtfully Designed.
               </p>
               <div className="space-y-4 font-display text-[14px] leading-[1.7] text-[#585858] sm:text-[15px]">
                 <p>
-                  Anaya Terrace is a boutique row house development in BoysTown,
-                  Upper Margibi, Liberia - a small, carefully designed
-                  residential community comprising four homes, each offering
-                  comfortable, well-finished living spaces for families and
-                  individuals seeking quality and comfort.
+                  Anaro Estate is Sikram Africa's most ambitious development to date: 
+                  a premier mixed-use golfing community set on 35 acres of land in Lower 
+                  Margibi, Liberia, just five minutes from Roberts International Airport. 
+                  Designed for achievers and urbane personalities who refuse to compromise 
+                  on lifestyle, Anaro Estate is where luxury, functionality, and nature exist 
+                  in perfect harmony.
                 </p>
                 <p>
-                  Situated 15 minutes from Roberts International Airport, Anaya
-                  Terrace offers residents a peaceful, well-connected address in
-                  Upper Margibi, with the same commitment to environmentally
-                  conscious construction and quality craftsmanship that defines
-                  every Sikram Africa property.
+                  This is an entire world, one where you can live in a beautifully designed home, 
+                  work from a state-of-the-art co-working space, play a round of golf, and end 
+                  the evening at the cinema, all without leaving the premises.
+                </p>
+                <p>
+                  Homes at Anaro Estate range from studio apartments to six-bedroom luxury 
+                  residences, each built to the highest standards of craftsmanship and 
+                  set within lush, well-spaced green neighbourhoods.
                 </p>
               </div>
             </div>
@@ -87,7 +91,7 @@ export function DetailsSection() {
               type="button"
               className="h-11 w-fit rounded-[10px] bg-[#00A651] px-6 text-[12px] font-semibold uppercase tracking-[0.06em] text-white hover:bg-[#00A651]/90"
             >
-              Enquire About Anaya Terrace
+              Enquire About Anaro Estate
             </Button>
           </div>
 

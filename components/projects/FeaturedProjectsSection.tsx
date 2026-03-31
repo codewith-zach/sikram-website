@@ -12,10 +12,19 @@ const projectCards = [
   },
   {
     alt: "Interior view of Anaro Estate",
+    href: "/projects/anaro-estate",
     imageClassName: "object-center",
     location: "Lower Margibi",
     src: "/images/home/projects/anaro.png",
     title: "Anaro Estate",
+  },
+  {
+    alt: "Exterior view of Ariel Terrace",
+    href: "/projects/ariel-terrace",
+    imageClassName: "object-center",
+    location: "Kpaja Monrovia",
+    src: "/images/project_details/ariel/Hero.png",
+    title: "Ariel Terrace",
   },
 ] as const;
 

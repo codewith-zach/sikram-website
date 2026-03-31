@@ -1,10 +1,10 @@
-import { DetailsSection } from "@/components/projects/anaya/DetailsSection";
-import { GallerySection } from "@/components/projects/anaya/GallerySection";
+import { DetailsSection } from "@/components/projects/ariel/DetailsSection";
+import { HeroSection } from "@/components/projects/ariel/HeroSection";
+import { GallerySection } from "@/components/projects/ariel/GallerySection";
 import { CallToActionSection } from "@/components/projects/CallToActionSection";
-import { HeroSection } from "@/components/projects/anaya/HeroSection";
 import { ScrollReveal } from "@/components/shared";
 
-export default function AnayaTerracePage() {
+export default function ArielTerracePage() {
   return (
     <>
       <HeroSection />
@@ -12,7 +12,7 @@ export default function AnayaTerracePage() {
         <DetailsSection />
       </ScrollReveal>
       <ScrollReveal direction="up" delayMs={120}>
-        <GallerySection />
+        <GallerySection/>
       </ScrollReveal>
       <ScrollReveal direction="up" delayMs={160}>
         <CallToActionSection />

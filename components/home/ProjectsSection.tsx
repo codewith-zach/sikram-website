@@ -12,6 +12,7 @@ const projectCards = [
   },
   {
     alt: "Interior view of Anaro Estate",
+    href: "/projects/anaro-estate",
     imageClassName: "object-center",
     location: "Lower Margibi",
     src: "/images/home/projects/anaro.png",
@@ -185,13 +186,13 @@ export function ProjectsSection() {
                 </div>
               </div>
 
-              <button
-                type="button"
+              <Link
+                href="/projects/ariel-terrace"
                 className="mt-6 inline-flex h-[56px] w-full items-center justify-between rounded-[10px] bg-[#00A651] px-6 font-display text-[12px] font-semibold uppercase tracking-[0.02em] text-white transition hover:bg-[#00A651]/90 md:mt-8 md:text-[14px] xl:mt-14"
               >
                 <span>Explore Ariel Terrace</span>
                 <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
-              </button>
+              </Link>
             </div>
           </article>
         </div>

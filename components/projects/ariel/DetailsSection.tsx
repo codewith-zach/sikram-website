@@ -5,19 +5,27 @@ import { Button } from "@/components/ui/button";
 const highlights = [
   {
     icon: "/images/project_details/anaya/hugeicons_real-estate-02.svg",
-    title: "4 Residential\nRow Houses",
+    title: "Architecturally distinctive\nluxury homes built to\nglobal standards",
+  },
+  {
+    icon: "/images/project_details/anaro/amenities/material-symbols-light_pool-sharp.svg",
+    title: "Swimming pool and premium\nrecreational amenities",
   },
   {
     icon: "/images/project_details/anaya/mynaui_tree.svg",
-    title: "Eco-Friendly Construction\nBuilt to Global Standards",
+    title: "Eco-Friendly Construction\nwith green spaces woven\nthroughout",
   },
   {
-    icon: "/images/project_details/anaya/fluent_people-community-32-light.svg",
-    title: "Quiet, Well-Planned\nCommunity Setting",
+    icon: "/images/project_details/ariel/material-symbols-light_space-dashboard-outline.svg",
+    title: "Full drainage, sewage, and\nutility infrastructure\nincluded",
   },
   {
-    icon: "/images/project_details/anaya/material-symbols-light_multiple-airports-outline.svg",
-    title: "15 Minutes From Roberts\nInternational Airport, Upper Margibi",
+    icon: "/images/project_details/ariel/material-symbols-light_gate-outline-rounded.svg",
+    title: "Gated community with 24-\nhour security and\ncontrolled access",
+  },
+  {
+    icon: "/images/project_details/ariel/streamline-ultimate_engineer-project-superviser-1.svg",
+    title: "Thoughtfully zoned with\nproper spacing for comfort\nand privacy",
   },
 ] as const;
 
@@ -36,25 +44,25 @@ export function DetailsSection() {
 
             <div className="space-y-3">
               <h1 className="font-display text-[34px] leading-[1.05] font-bold tracking-[-0.03em] text-black sm:text-[40px]">
-                Anaya Terrace
+                Ariel Terrace
               </h1>
               <p className="font-display text-[16px] font-semibold text-black">
-                Quiet Living, Thoughtfully Designed.
+                Your Step Into Luxury Living.
               </p>
               <div className="space-y-4 font-display text-[14px] leading-[1.7] text-[#585858] sm:text-[15px]">
                 <p>
-                  Anaya Terrace is a boutique row house development in BoysTown,
-                  Upper Margibi, Liberia - a small, carefully designed
-                  residential community comprising four homes, each offering
-                  comfortable, well-finished living spaces for families and
-                  individuals seeking quality and comfort.
+                Ariel Terrace is the most exciting new residential address 
+                in Liberia: a masterfully designed, eco-friendly estate that 
+                permanently redefines what it means to live well in Monrovia. 
+                This is not just real estate, but a statement about the Liberia 
+                we believe in: one that is healthy, beautiful, well-planned, and built to last.
                 </p>
                 <p>
-                  Situated 15 minutes from Roberts International Airport, Anaya
-                  Terrace offers residents a peaceful, well-connected address in
-                  Upper Margibi, with the same commitment to environmentally
-                  conscious construction and quality craftsmanship that defines
-                  every Sikram Africa property.
+                Situated in Kpaja Johnsonville, Paynesville, approximately 20 to 30 minutes from 
+                the CBD of Monrovia, Ariel Terrace brings together architectural elegance, sustainable 
+                construction, and a genuine sense of community that Liberia has never seen before.
+                Every home on this estate has been designed with your comfort, your health, 
+                and your family in mind.
                 </p>
               </div>
             </div>
@@ -63,7 +71,7 @@ export function DetailsSection() {
               <h2 className="font-display text-[20px] font-bold text-black">
                 Development Highlights
               </h2>
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-3">
                 {highlights.map((item) => (
                   <div key={item.title} className="space-y-3">
                     <div className="flex h-10 w-10 items-center justify-center">
@@ -87,13 +95,13 @@ export function DetailsSection() {
               type="button"
               className="h-11 w-fit rounded-[10px] bg-[#00A651] px-6 text-[12px] font-semibold uppercase tracking-[0.06em] text-white hover:bg-[#00A651]/90"
             >
-              Enquire About Anaya Terrace
+              Enquire About Ariel Terrace
             </Button>
           </div>
 
           <div className="relative min-h-[420px] overflow-hidden sm:min-h-[480px] lg:h-full">
             <Image
-              src="/images/project_details/anaya/room.png"
+              src="/images/project_details/ariel/car.png"
               alt="Interior view of Anaya Terrace bedroom"
               fill
               sizes="(min-width: 1280px) 480px, 100vw"

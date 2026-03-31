@@ -1,20 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const houseCards = [
   {
     alt: "Exterior view of Bannah House",
+    href: undefined,
     location: "Kpaja, Monrovia",
     src: "/images/projects/smart_homes/bannah_house.png",
     title: "Bannah House",
   },
   {
     alt: "Exterior view of Vlandee Guest House",
+    href: "/projects/vlandee-guest-house",
     location: "Kpaja Johnsonville, Paynesville",
     src: "/images/projects/smart_homes/vlandee_house.png",
     title: "Vlandee Guest House",
   },
   {
     alt: "Exterior view of Zulu House",
+    href: undefined,
     location: "Kpaja, Monrovia",
     src: "/images/projects/smart_homes/zulu_house.png",
     title: "Zulu House",
@@ -41,11 +45,12 @@ function LocationIcon() {
 
 function HouseCard({
   alt,
+  href,
   location,
   src,
   title,
 }: (typeof houseCards)[number]) {
-  return (
+  const card = (
     <article className="group relative h-[430px] overflow-hidden rounded-[14px] sm:h-[500px] xl:h-[535px]">
       <Image
         src={src}
@@ -67,6 +72,16 @@ function HouseCard({
       </div>
     </article>
   );
+
+  if (href) {
+    return (
+      <Link href={href} aria-label={`View ${title}`}>
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 }
 
 export function SmartHousesSection() {

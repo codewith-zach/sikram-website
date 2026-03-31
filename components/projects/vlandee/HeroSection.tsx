@@ -1,14 +1,17 @@
+import Image from "next/image";
+
 export function HeroSection() {
-    return (
-      <section aria-label="Anaya Terrace hero" className="bg-white">
-        <div className="relative h-[260px] sm:h-[360px] md:h-[420px] xl:h-[520px]">
-          <img
-            src="/images/project_details/vlandee/Hero.png"
-            alt="Exterior view of Anaya Terrace"
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
-      </section>
-    );
-  }
-  
+  return (
+    <section aria-label="Vlandee Guest Houses hero" className="bg-white">
+      <div className="relative h-[260px] sm:h-[360px] md:h-[420px] xl:h-[520px]">
+        <Image
+          src="/images/project_details/vlandee/Hero.png"
+          alt="Exterior view of Vlandee Guest Houses"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+    </section>
+  );
+}

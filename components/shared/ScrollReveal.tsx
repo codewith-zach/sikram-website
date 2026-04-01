@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { useInView } from "motion/react";
 
 type RevealDirection = "left" | "right" | "up";
 
@@ -29,7 +31,13 @@ export function ScrollReveal({
   delayMs = 0,
   direction = "up",
 }: ScrollRevealProps) {
+  const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-10% 0px",
+  });
 
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
@@ -37,16 +45,19 @@ export function ScrollReveal({
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={getHiddenState(direction)}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
       transition={{
         delay: delayMs / 1000,
-        duration: 0.9,
+        duration: 0.8,
         ease: [0.22, 1, 0.36, 1],
       }}
-      style={{ willChange: "transform, opacity" }}
+      style={{
+        willChange: "transform, opacity",
+        transform: "translateZ(0)",
+      }}
     >
       {children}
     </motion.div>

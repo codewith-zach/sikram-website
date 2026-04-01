@@ -161,3 +161,33 @@ a {
     @apply font-sans;
   }
 }
+
+/* Desktop (hover devices only) */
+@media (hover: hover) {
+  .group:hover .overlay {
+    opacity: 0.6;
+  }
+
+  .group:hover .default-content {
+    opacity: 0;
+  }
+
+  .group:hover .panel {
+    transform: translateY(0);
+  }
+}
+
+/* Touch devices (mobile + tablet) */
+@media (hover: none) {
+  .in-view .overlay {
+    opacity: 0.6;
+  }
+
+  .in-view .default-content {
+    opacity: 0;
+  }
+
+  .in-view .panel {
+    transform: translateY(0);
+  }
+}

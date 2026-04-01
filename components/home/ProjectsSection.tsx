@@ -81,12 +81,36 @@ function ProjectCard({
   src,
   tagline,
   title,
-  enableHoverOverlay,
-}: (typeof projectCards)[number] & { enableHoverOverlay: boolean }) {
-  const canShowHoverPanel = enableHoverOverlay && Boolean(description);
+}: (typeof projectCards)[number]) {
+  const cardRef = useRef<HTMLElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || isInView) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, [isInView]);
 
   const card = (
-    <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
+    <article
+      ref={cardRef}
+      className={`group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px] ${
+        isInView ? "in-view" : ""
+      }`}
+    >
       {/* Image */}
       <Image
         src={src}
@@ -99,17 +123,13 @@ function ProjectCard({
       {/* Dark gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90" />
 
-      {/* Green overlay (fixed) */}
-      {canShowHoverPanel && (
-        <div className="absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
+      {/* ✅ Green overlay */}
+      {description && (
+        <div className="overlay absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500" />
       )}
 
-      {/* Default content (fades slightly, not gone) */}
-      <div
-        className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 ${
-          canShowHoverPanel ? "transition-opacity duration-300 group-hover:opacity-0" : ""
-        }`}
-      >
+      {/* Default content */}
+      <div className="default-content absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 transition-opacity duration-300">
         <div className="min-w-0 text-white">
           <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
             {title}
@@ -121,13 +141,9 @@ function ProjectCard({
         </div>
       </div>
 
-      {/* Hover panel */}
+      {/* Overlay panel */}
       {description && (
-        <div
-          className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            canShowHoverPanel ? "group-hover:translate-y-0" : ""
-          }`}
-        >
+        <div className="panel absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
           <div className="grid min-h-[220px] gap-3 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
             <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
               {title}
@@ -146,9 +162,9 @@ function ProjectCard({
         </div>
       )}
 
-      {/* FIXED BUTTON (never moves or resizes) */}
+      {/* Button */}
       <div className="absolute bottom-4 right-4 md:bottom-8 md:right-10 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white">
-        <span className="whitespace-nowrap">View Project</span>
+        <span>View Project</span>
         <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </article>
@@ -215,7 +231,6 @@ export function ProjectsSection() {
             <ProjectCard
               key={project.title}
               {...project}
-              enableHoverOverlay={hasScrolledIntoView}
             />
           ))}
 

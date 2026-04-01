@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
-import { useInView } from "motion/react";
+import { useGSAP } from "@gsap/react";
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
 
 type RevealDirection = "left" | "right" | "up";
 
@@ -16,12 +16,12 @@ type ScrollRevealProps = {
 function getHiddenState(direction: RevealDirection) {
   switch (direction) {
     case "left":
-      return { opacity: 0, x: -40, y: 0 };
+      return { x: -40, opacity: 0 };
     case "right":
-      return { opacity: 0, x: 40, y: 0 };
+      return { x: 40, opacity: 0 };
     case "up":
     default:
-      return { opacity: 0, x: 0, y: 40 };
+      return { y: 40, opacity: 0 };
   }
 }
 
@@ -31,35 +31,44 @@ export function ScrollReveal({
   delayMs = 0,
   direction = "up",
 }: ScrollRevealProps) {
-  const ref = useRef(null);
-  const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
 
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-10% 0px",
-  });
+  useGSAP(
+    () => {
+      const triggers: ScrollTrigger[] = [];
 
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
+      if (ref.current) {
+        gsap.set(ref.current, getHiddenState(direction));
+
+        const trigger = ScrollTrigger.create({
+          trigger: ref.current,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(ref.current, {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: delayMs / 1000,
+              ease: "power3.out" as gsap.EaseString,
+            });
+          },
+        });
+
+        triggers.push(trigger);
+      }
+
+      return () => {
+        triggers.forEach((trigger) => trigger.kill());
+      };
+    },
+    { scope: ref }
+  );
 
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={getHiddenState(direction)}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-      transition={{
-        delay: delayMs / 1000,
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      style={{
-        willChange: "transform, opacity",
-        transform: "translateZ(0)",
-      }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

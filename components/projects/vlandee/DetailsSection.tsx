@@ -24,7 +24,7 @@ export function DetailsSection() {
               </p>
               <div className="space-y-4 font-display text-[14px] leading-[1.7] text-[#585858] sm:text-[15px]">
                 <p>
-                Vlandee Guest Houses is Sikram Africa's hospitality development in Kpaja Johnsonville, Paynesville, 
+                Vlandee Guest Houses is Sikram Africa&apos;s hospitality development in Kpaja Johnsonville, Paynesville, 
                 20 to 30 minutes from the CBD of Monrovia. Designed for discerning guests and residents who expect 
                 nothing less than the finest, Vlandee combines the comfort of a luxury home with the amenities of a 
                 world-class retreat. Whether you are visiting Liberia for business or pleasure, or simply looking 

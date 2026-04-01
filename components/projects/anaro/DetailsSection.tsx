@@ -43,7 +43,7 @@ export function DetailsSection() {
               </p>
               <div className="space-y-4 font-display text-[14px] leading-[1.7] text-[#585858] sm:text-[15px]">
                 <p>
-                  Anaro Estate is Sikram Africa's most ambitious development to date: 
+                  Anaro Estate is Sikram Africa&apos;s most ambitious development to date: 
                   a premier mixed-use golfing community set on 35 acres of land in Lower 
                   Margibi, Liberia, just five minutes from Roberts International Airport. 
                   Designed for achievers and urbane personalities who refuse to compromise 

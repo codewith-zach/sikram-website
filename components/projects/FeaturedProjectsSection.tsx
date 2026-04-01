@@ -27,14 +27,6 @@ const projectCards = [
     tagline: "Live. Work. Play. All in One Place.",
     title: "Anaro Estate",
   },
-  {
-    alt: "Exterior view of Ariel Terrace",
-    href: "/projects/ariel-terrace",
-    imageClassName: "object-center",
-    location: "Kpaja Monrovia",
-    src: "/images/project_details/ariel/Hero.png",
-    title: "Ariel Terrace",
-  },
 ] as const;
 
 function ArrowIcon({ className = "h-5 w-5" }: { className?: string }) {
@@ -82,45 +74,55 @@ function ProjectCard({
   src,
   tagline,
   title,
-  enableHoverOverlay,
-}: {
-  alt: string;
-  description?: string;
-  imageClassName: string;
-  href: string;
-  location: string;
-  src: string;
-  tagline?: string;
-  title: string;
-  enableHoverOverlay: boolean;
-}) {
-  const canShowHoverPanel = enableHoverOverlay && Boolean(description);
+}: (typeof projectCards)[number]) {
+  const cardRef = useRef<HTMLElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || isInView) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, [isInView]);
 
   const card = (
-    <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
+    <article
+      ref={cardRef}
+      className={`group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px] ${
+        isInView ? "in-view" : ""
+      }`}
+    >
+      {/* Image */}
       <Image
         src={src}
         alt={alt}
         fill
         sizes="(min-width: 1280px) 1280px, 100vw"
-        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] group-focus-within:scale-[1.045] ${imageClassName}`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90" />
-      <div
-        className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 ${
-          canShowHoverPanel
-            ? "group-hover:opacity-70 group-focus-within:opacity-70"
-            : ""
-        }`}
+        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] ${imageClassName}`}
       />
 
-      <div
-        className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 ${
-          canShowHoverPanel
-            ? "transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0"
-            : ""
-        }`}
-      >
+      {/* Dark gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90" />
+
+      {/* Green overlay */}
+      {description && (
+        <div className="overlay absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500" />
+      )}
+
+      {/* Default content */}
+      <div className="default-content absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 transition-opacity duration-300">
         <div className="min-w-0 text-white">
           <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
             {title}
@@ -130,21 +132,11 @@ function ProjectCard({
             <span className="truncate">{location}</span>
           </div>
         </div>
-
-        <span className="hidden items-center gap-3 self-end text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:inline-flex">
-          <span className="whitespace-nowrap">View Project</span>
-          <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
-        </span>
       </div>
 
-      {description ? (
-        <div
-          className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-500 ease-out ${
-            canShowHoverPanel
-              ? "group-hover:translate-y-0 group-focus-within:translate-y-0"
-              : ""
-          }`}
-        >
+      {/* Overlay panel */}
+      {description && (
+        <div className="panel absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
           <div className="grid min-h-[220px] gap-3 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
             <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
               {title}
@@ -161,14 +153,13 @@ function ProjectCard({
             </p>
           </div>
         </div>
-      ) : null}
-
-      {canShowHoverPanel && (
-        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:bottom-8 md:right-10">
-          <span className="whitespace-nowrap">View Project</span>
-          <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1" />
-        </div>
       )}
+
+      {/* Button */}
+      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-10 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white">
+        <span>View Project</span>
+        <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
+      </div>
     </article>
   );
 
@@ -184,33 +175,8 @@ function ProjectCard({
 }
 
 export function FeaturedProjectsSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [hasScrolledIntoView, setHasScrolledIntoView] = useState(false);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || hasScrolledIntoView) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setHasScrolledIntoView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, [hasScrolledIntoView]);
-
   return (
     <section
-      ref={sectionRef}
       aria-label="Featured projects"
       className="bg-white"
     >
@@ -233,7 +199,6 @@ export function FeaturedProjectsSection() {
             <ProjectCard
               key={project.title}
               {...project}
-              enableHoverOverlay={hasScrolledIntoView}
             />
           ))}
         </div>

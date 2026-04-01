@@ -7,7 +7,7 @@ const contactDetails = [
   },
   {
     title: "Email Address",
-    body: "sikramafrica@gmail.com",
+    body: "civirzach@gmail.com",
   },
   {
     title: "Phone Number",
@@ -127,7 +127,7 @@ export function ContactSection() {
 
           <div className="rounded-[18px] bg-[#F3F3F3] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8">
             <form
-              action="mailto:sikramafrica@gmail.com"
+              action="mailto:civirzach@gmail.com"
               method="post"
               encType="text/plain"
               className="space-y-5"

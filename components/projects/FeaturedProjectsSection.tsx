@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -95,36 +95,44 @@ function ProjectCard({
   enableHoverOverlay: boolean;
 }) {
   const canShowHoverPanel = enableHoverOverlay && Boolean(description);
-  const [isTouched, setIsTouched] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
-  const handleTouchStart = useCallback(() => {
-    setIsTouched(true);
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const mql = window.matchMedia("(hover: none)");
+    if (!mql.matches) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
-
-  const handleTouchEnd = useCallback(() => {
-    setTimeout(() => setIsTouched(false), 2500);
-  }, []);
-
-  const overlayActive = canShowHoverPanel && isTouched;
 
   const card = (
     <article
-      className={`group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px] ${overlayActive ? "is-touched" : ""}`}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      ref={cardRef}
+      className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]"
     >
       <Image
         src={src}
         alt={alt}
         fill
         sizes="(min-width: 1280px) 1280px, 100vw"
-        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] group-focus-within:scale-[1.045] ${overlayActive ? "scale-[1.045]" : ""} ${imageClassName}`}
+        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] group-focus-within:scale-[1.045] ${isInView ? "scale-[1.045]" : ""} ${imageClassName}`}
       />
-      <div className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 ${overlayActive ? "opacity-90" : ""}`} />
+      <div className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 ${isInView ? "opacity-90" : ""}`} />
       <div
         className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 ${
           canShowHoverPanel
-            ? `group-hover:opacity-70 group-focus-within:opacity-70 ${overlayActive ? "opacity-70" : ""}`
+            ? `group-hover:opacity-70 group-focus-within:opacity-70 ${isInView ? "opacity-70" : ""}`
             : ""
         }`}
       />
@@ -132,7 +140,7 @@ function ProjectCard({
       <div
         className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 ${
           canShowHoverPanel
-            ? `transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 ${overlayActive ? "opacity-0" : ""}`
+            ? `transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 ${isInView ? "opacity-0" : ""}`
             : ""
         }`}
       >
@@ -156,7 +164,7 @@ function ProjectCard({
         <div
           className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-500 ease-out ${
             canShowHoverPanel
-              ? `group-hover:translate-y-0 group-focus-within:translate-y-0 ${overlayActive ? "translate-y-0" : ""}`
+              ? `group-hover:translate-y-0 group-focus-within:translate-y-0 ${isInView ? "translate-y-0" : ""}`
               : ""
           }`}
         >
@@ -178,10 +186,10 @@ function ProjectCard({
         </div>
       ) : null}
 
-      {canShowHoverPanel && (
+      {(canShowHoverPanel || (isInView && Boolean(description))) && (
         <div className="absolute bottom-4 right-4 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:bottom-8 md:right-10">
           <span className="whitespace-nowrap">View Project</span>
-          <ArrowIcon className={`h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1 ${overlayActive ? "translate-x-1" : ""}`} />
+          <ArrowIcon className={`h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-focus-within:translate-x-1 ${isInView ? "translate-x-1" : ""}`} />
         </div>
       )}
     </article>

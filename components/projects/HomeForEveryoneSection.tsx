@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 
 const audienceCards = [
@@ -45,51 +45,41 @@ function AudienceCard({
   src: string;
   title: string;
 }) {
-  const cardRef = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
 
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const mql = window.matchMedia("(hover: none)");
-    if (!mql.matches) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+  const handleTouchStart = useCallback(() => {
+    setIsTouched(true);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    setTimeout(() => setIsTouched(false), 2500);
   }, []);
 
   return (
     <article
-      ref={cardRef}
-      className="group relative h-[340px] overflow-hidden rounded-[14px] sm:h-[380px] xl:h-[420px]"
+      className={`group relative h-[340px] overflow-hidden rounded-[14px] sm:h-[380px] xl:h-[420px] ${isTouched ? "is-touched" : ""}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <Image
         src={src}
         alt={alt}
         fill
         sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-        className={`object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04] group-focus-within:scale-[1.04] ${isInView ? "scale-[1.04]" : ""}`}
+        className={`object-cover object-center transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04] group-focus-within:scale-[1.04] ${isTouched ? "scale-[1.04]" : ""}`}
       />
-      <div className={`absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 ${isInView ? "opacity-90" : ""}`} />
-      <div className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60 group-focus-within:opacity-60 ${isInView ? "opacity-60" : ""}`} />
+      <div className={`absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 ${isTouched ? "opacity-90" : ""}`} />
+      <div className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60 group-focus-within:opacity-60 ${isTouched ? "opacity-60" : ""}`} />
 
       {/* Default content (fades on hover) */}
-      <div className={`absolute inset-x-0 bottom-0 px-5 pb-6 text-white transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 sm:px-6 sm:pb-7 ${isInView ? "opacity-0" : ""}`}>
+      <div className={`absolute inset-x-0 bottom-0 px-5 pb-6 text-white transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0 sm:px-6 sm:pb-7 ${isTouched ? "opacity-0" : ""}`}>
         <h3 className="whitespace-pre-line font-display text-[24px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[26px] xl:text-[28px]">
           {title}
         </h3>
       </div>
 
       {/* Hover panel */}
-      <div className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 ${isInView ? "translate-y-0" : ""}`}>
+      <div className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 ${isTouched ? "translate-y-0" : ""}`}>
         <div className="flex flex-col gap-3 px-5 pb-6 pt-4 text-white sm:px-6 sm:pb-7">
           <h3 className="whitespace-pre-line font-display text-[24px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[26px] xl:text-[28px]">
             {title}

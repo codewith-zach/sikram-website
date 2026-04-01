@@ -144,7 +144,7 @@ function ProjectCard({
       {/* Overlay panel */}
       {description && (
         <div className="panel absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
-          <div className="grid min-h-[220px] gap-3 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
+          <div className="grid min-h-[220px] gap-0 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
             <h3 className="font-display text-[24px] leading-none font-bold tracking-[-0.03em] md:text-[32px]">
               {title}
             </h3>

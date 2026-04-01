@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -84,45 +84,30 @@ function ProjectCard({
   enableHoverOverlay,
 }: (typeof projectCards)[number] & { enableHoverOverlay: boolean }) {
   const canShowHoverPanel = enableHoverOverlay && Boolean(description);
-  const [isTouched, setIsTouched] = useState(false);
-
-  const handleTouchStart = useCallback(() => {
-    setIsTouched(true);
-  }, []);
-
-  const handleTouchEnd = useCallback(() => {
-    setTimeout(() => setIsTouched(false), 2500);
-  }, []);
-
-  const overlayActive = canShowHoverPanel && isTouched;
 
   const card = (
-    <article
-      className={`group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px] ${overlayActive ? "is-touched" : ""}`}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
+    <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
       {/* Image */}
       <Image
         src={src}
         alt={alt}
         fill
         sizes="(min-width: 1280px) 1280px, 100vw"
-        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] ${overlayActive ? "scale-[1.045]" : ""} ${imageClassName}`}
+        className={`object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.045] ${imageClassName}`}
       />
 
       {/* Dark gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90 ${overlayActive ? "opacity-90" : ""}`} />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55 transition-opacity duration-500 group-hover:opacity-90" />
 
       {/* Green overlay (fixed) */}
       {canShowHoverPanel && (
-        <div className={`absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60 ${overlayActive ? "opacity-60" : ""}`} />
+        <div className="absolute inset-0 bg-[#00A651]/100 opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
       )}
 
       {/* Default content (fades slightly, not gone) */}
       <div
         className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-4 pb-4 md:px-10 md:pb-8 ${
-          canShowHoverPanel ? `transition-opacity duration-300 group-hover:opacity-0 ${overlayActive ? "opacity-0" : ""}` : ""
+          canShowHoverPanel ? "transition-opacity duration-300 group-hover:opacity-0" : ""
         }`}
       >
         <div className="min-w-0 text-white">
@@ -140,7 +125,7 @@ function ProjectCard({
       {description && (
         <div
           className={`absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            canShowHoverPanel ? `group-hover:translate-y-0 ${overlayActive ? "translate-y-0" : ""}` : ""
+            canShowHoverPanel ? "group-hover:translate-y-0" : ""
           }`}
         >
           <div className="grid min-h-[220px] gap-3 px-4 pb-5 pt-4 text-white md:min-h-[300px] md:px-10 md:pb-8 md:pt-7 xl:min-h-[340px]">
@@ -164,7 +149,7 @@ function ProjectCard({
       {/* FIXED BUTTON (never moves or resizes) */}
       <div className="absolute bottom-4 right-4 md:bottom-8 md:right-10 z-20 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.02em] text-white">
         <span className="whitespace-nowrap">View Project</span>
-        <ArrowIcon className={`h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 ${overlayActive ? "translate-x-1" : ""}`} />
+        <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </article>
   );

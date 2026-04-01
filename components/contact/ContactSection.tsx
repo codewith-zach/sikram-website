@@ -7,11 +7,11 @@ const contactDetails = [
   },
   {
     title: "Email Address",
-    body: "info@sikramafrica.com",
+    body: "sikramafrica@gmail.com",
   },
   {
     title: "Phone Number",
-    body: "+231 XXX XXX XXXX",
+    body: "+61 485 696 123",
   },
 ] as const;
 
@@ -126,7 +126,12 @@ export function ContactSection() {
           </div>
 
           <div className="rounded-[18px] bg-[#F3F3F3] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8">
-            <form className="space-y-5">
+            <form
+              action="mailto:sikramafrica@gmail.com"
+              method="post"
+              encType="text/plain"
+              className="space-y-5"
+            >
               <div className="space-y-2">
                 <label className="text-[13px] font-semibold text-black" htmlFor="fullName">
                   Full Name
@@ -134,6 +139,7 @@ export function ContactSection() {
                 <input
                   id="fullName"
                   type="text"
+                  name="fullName"
                   placeholder="John Doe"
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 />
@@ -146,6 +152,7 @@ export function ContactSection() {
                 <input
                   id="email"
                   type="email"
+                  name="email"
                   placeholder="name@email.com"
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 />
@@ -156,12 +163,13 @@ export function ContactSection() {
                   Phone Number
                 </label>
                 <div className="flex h-11 items-center gap-2 rounded-[10px] border border-[#E3E3E3] bg-white px-3">
-                  <span className="text-[13px] font-semibold text-black">+231</span>
+                  <span className="text-[13px] font-semibold text-black">+61</span>
                   <div className="h-5 w-px bg-[#E3E3E3]" />
                   <input
                     id="phone"
                     type="tel"
-                    placeholder="0000000000"
+                    name="phone"
+                    placeholder="485 696 123"
                     className="h-full w-full bg-transparent text-[14px] text-black outline-none"
                   />
                 </div>
@@ -173,6 +181,7 @@ export function ContactSection() {
                 </label>
                 <select
                   id="subject"
+                  name="subject"
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-[#585858] outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 >
                   <option value="">Select</option>
@@ -188,6 +197,7 @@ export function ContactSection() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   placeholder="Type message"
                   rows={4}
                   className="w-full resize-none rounded-[10px] border border-[#E3E3E3] bg-white px-4 py-3 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"

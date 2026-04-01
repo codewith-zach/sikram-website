@@ -173,7 +173,8 @@ a {
   }
 
   .group:hover .panel {
-    transform: translateY(0);
+    --tw-translate-y: 0px;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 }
 
@@ -188,6 +189,7 @@ a {
   }
 
   .in-view .panel {
-    transform: translateY(0);
+    --tw-translate-y: 0px;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 }

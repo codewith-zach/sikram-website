@@ -19,7 +19,7 @@ const propertyLinks = [
 const contactLinks = [
   { label: "Monrovia, Liberia" },
   { href: "mailto:hello@sikramafrica.com", label: "hello@sikramafrica.com" },
-  { href: "tel:+61485696123", label: "+61 485 696 123" },
+  { href: "https://wa.me/61485696123", label: "+61 485 696 123" },
   { href: "/contact", label: "Get Directions" },
 ] as const;
 

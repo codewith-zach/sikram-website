@@ -1,4 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
+
+// EmailJS Configuration - Get these from https://dashboard.emailjs.com/
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const contactDetails = [
   {
@@ -23,6 +34,46 @@ const socialLinks = [
 ] as const;
 
 export function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '+61 ',
+    subject: '',
+    message: '',
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      });
+
+      setSubmitStatus({ type: 'success', message: 'Message sent successfully! We\'ll get back to you soon.' });
+      setFormData({ fullName: '', email: '', phone: '+61 ', subject: '', message: '' });
+    } catch {
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or contact us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <section aria-label="Contact information" className="bg-white">
       <div className="mx-auto w-full max-w-[1440px] px-4 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 md:px-12 md:pb-24 xl:px-[80px] xl:pt-[72px]">
@@ -43,7 +94,7 @@ export function ContactSection() {
                 We welcome prospective buyers, diaspora investors, and community
                 members to visit our properties and see firsthand what
                 environmentally conscious real estate in Liberia looks like. Our
-                team will be on site to walk you through the developments and
+                team will be on site to walk you through to developments and
                 answer every question you have, at a time that suits you.
               </p>
             </div>
@@ -115,7 +166,7 @@ export function ContactSection() {
                           className="h-5 w-5"
                           fill="currentColor"
                         >
-                          <path d="M18.2 2H21l-6.4 7.4L22 22h-6.3l-4-5.6L6.7 22H4l6.8-7.9L2 2h6.4l3.6 5.1L18.2 2ZM16.9 20h1.8L7.2 4H5.3l11.6 16Z" />
+                          <path d="M18.2 2H21l-6.4 7.4L22 22h-6.3l-4-5.6L6.7 22H4l6.8-7.9L2 2h6.4L3.6 5.1L18.2 2ZM16.9 20h1.8L7.2 4H5.3l11.6 16Z" />
                         </svg>
                       )}
                     </a>
@@ -126,12 +177,13 @@ export function ContactSection() {
           </div>
 
           <div className="rounded-[18px] bg-[#F3F3F3] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8">
-            <form
-              action="mailto:civirzach@gmail.com"
-              method="post"
-              encType="text/plain"
-              className="space-y-5"
-            >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {submitStatus.type && (
+                <div className={`rounded-[8px] p-4 text-[14px] ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <div className="space-y-2">
                 <label className="text-[13px] font-semibold text-black" htmlFor="fullName">
                   Full Name
@@ -140,6 +192,8 @@ export function ContactSection() {
                   id="fullName"
                   type="text"
                   name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
                   placeholder="John Doe"
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 />
@@ -153,6 +207,8 @@ export function ContactSection() {
                   id="email"
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="name@email.com"
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 />
@@ -169,6 +225,8 @@ export function ContactSection() {
                     id="phone"
                     type="tel"
                     name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="485 696 123"
                     className="h-full w-full bg-transparent text-[14px] text-black outline-none"
                   />
@@ -182,6 +240,8 @@ export function ContactSection() {
                 <select
                   id="subject"
                   name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="h-11 w-full rounded-[10px] border border-[#E3E3E3] bg-white px-4 text-[14px] text-[#585858] outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
                 >
                   <option value="">Select</option>
@@ -198,6 +258,8 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Type message"
                   rows={4}
                   className="w-full resize-none rounded-[10px] border border-[#E3E3E3] bg-white px-4 py-3 text-[14px] text-black outline-none transition focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
@@ -206,9 +268,10 @@ export function ContactSection() {
 
               <Button
                 type="submit"
-                className="h-11 rounded-[10px] bg-[#4BA360] px-8 text-[14px] font-semibold text-white hover:bg-[#3f8f53]"
+                disabled={isSubmitting}
+                className="h-11 rounded-[10px] bg-[#4BA360] px-8 text-[14px] font-semibold text-white hover:bg-[#3f8f53] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>

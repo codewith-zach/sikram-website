@@ -143,12 +143,12 @@ function ProjectCard({
             </h3>
 
             {tagline && (
-              <p className="font-display text-[15px] leading-[1.5] md:text-[18px] xl:text-[20px]">
+              <p className="font-display text-[12px] leading-[1.5] md:text-[15px] xl:text-[18px]">
                 {tagline}
               </p>
             )}
 
-            <p className="max-w-[800px] text-[15px] leading-[1.5] md:text-[18px] xl:text-[20px]">
+            <p className="max-w-[800px] text-[12px] leading-[1.5] md:text-[15px] xl:text-[18px]">
               {description}
             </p>
           </div>

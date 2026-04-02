@@ -183,15 +183,15 @@ a {
 
 /* Touch devices (mobile + tablet) */
 @media (hover: none) {
-  .in-view .overlay {
+  .group:active .overlay {
     opacity: 0.6;
   }
 
-  .in-view .default-content {
+  .group:active .default-content {
     opacity: 0;
   }
 
-  .in-view .panel {
+  .group:active .panel {
     --tw-translate-y: 0px;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }

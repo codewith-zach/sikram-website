@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -75,35 +74,8 @@ function ProjectCard({
   tagline,
   title,
 }: (typeof projectCards)[number]) {
-  const cardRef = useRef<HTMLElement | null>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el || isInView) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, [isInView]);
-
   const card = (
-    <article
-      ref={cardRef}
-      className={`group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px] ${
-        isInView ? "in-view" : ""
-      }`}
-    >
+    <article className="group relative h-[262px] overflow-hidden rounded-[10px] md:h-[380px] xl:h-[570px]">
       {/* Image */}
       <Image
         src={src}

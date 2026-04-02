@@ -18,7 +18,7 @@ const contactDetails = [
   },
   {
     title: "Email Address",
-    body: "civirzach@gmail.com",
+    body: "sikramafrica@gmail.com",
   },
   {
     title: "Phone Number",

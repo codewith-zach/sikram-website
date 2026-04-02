@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
     <section className="overflow-hidden bg-(image:--hero-gradient)">
       <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 xl:px-[76px]">
-        <div className="relative min-h-[calc(100svh-57px)] pb-[82vw] pt-9 sm:pb-[66vw] sm:pt-10 md:pb-[34vw] md:pt-12 xl:min-h-[760px] xl:pb-0 xl:pt-[56px]">
+        <div className="relative min-h-[calc(100svh-57px)] pb-[90vw] pt-9 sm:pb-[66vw] sm:pt-10 md:pb-[34vw] md:pt-12 xl:min-h-[760px] xl:pb-0 xl:pt-[56px]">
           <div className="relative z-10 flex max-w-lg flex-col items-center text-center md:max-w-xl md:items-start md:text-left xl:max-w-2xl">
             <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-xs text-white backdrop-blur-[10px] sm:px-5 sm:text-sm md:px-7 md:py-3 md:text-base">
               <Image
@@ -33,31 +34,33 @@ export function HeroSection() {
             </p>
 
             <div className="mt-10 flex w-full max-w-xs flex-col gap-4 md:mt-12 md:max-w-none md:flex-row xl:mt-18">
-              <button
-                type="button"
-                className="inline-flex min-h-[56px] items-center justify-center rounded-[12px] bg-white px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.01em] text-[#3f3f3f] transition hover:bg-[#f8f8f8] md:min-w-[228px]"
-              >
-                <span>EXPLORE PROPERTIES</span>
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  className="ml-3 h-5 w-5 text-[#00A651]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              <Link href="/projects">
+                <button
+                  className="inline-flex w-full min-h-[56px] items-center justify-center rounded-[12px] bg-white px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.01em] text-[#3f3f3f] transition hover:bg-[#f8f8f8] md:min-w-[228px]"
                 >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                className="inline-flex min-h-[56px] items-center justify-center rounded-[12px] border border-white/40 bg-transparent px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.01em] text-white transition hover:bg-white/10 md:min-w-[228px]"
-              >
-                LEARN OUR STORY
-              </button>
+                  <span>EXPLORE PROPERTIES</span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="ml-3 h-5 w-5 text-[#00A651]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </button>
+              </Link>
+              <Link href="/about">
+                <button
+                  className="inline-flex w-full min-h-[56px] items-center justify-center rounded-[12px] border border-white/40 bg-transparent px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.01em] text-white transition hover:bg-white/10 md:min-w-[228px]"
+                >
+                  <span>LEARN OUR STORY</span>
+                </button>
+              </Link>
             </div>
           </div>
 

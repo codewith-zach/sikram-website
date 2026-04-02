@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { PhoneInput } from "@/components/ui/phone-input";
 import emailjs from "@emailjs/browser";
 
 // EmailJS Configuration - Get these from https://dashboard.emailjs.com/
@@ -43,6 +44,7 @@ export function ContactSection() {
     subject: '',
     message: '',
   });
+  const [phoneValue, setPhoneValue] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,13 +55,14 @@ export function ContactSection() {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: formData.fullName,
         from_email: formData.email,
-        phone: formData.phone,
+        phone: phoneValue,
         subject: formData.subject,
         message: formData.message,
       });
 
       setSubmitStatus({ type: 'success', message: 'Message sent successfully! We\'ll get back to you soon.' });
       setFormData({ fullName: '', email: '', phone: '', subject: '', message: '' });
+      setPhoneValue('');
     } catch {
       setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or contact us directly.' });
     } finally {
@@ -218,19 +221,15 @@ export function ContactSection() {
                 <label className="text-[13px] font-semibold text-black" htmlFor="phone">
                   Phone Number
                 </label>
-                <div className="flex h-11 items-center gap-2 rounded-[10px] border border-[#E3E3E3] bg-white px-3">
-                  <span className="text-[13px] font-semibold text-black">+61</span>
-                  <div className="h-5 w-px bg-[#E3E3E3]" />
-                  <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="485 696 123"
-                    className="h-full w-full max-w-full flex-1 bg-transparent text-[14px] text-black outline-none"
-                  />
-                </div>
+                <PhoneInput
+                  id="phone"
+                  name="phone"
+                  value={phoneValue}
+                  onChange={setPhoneValue}
+                  placeholder="Enter phone number"
+                  defaultCountry="AU"
+                  className="rounded-[10px] border border-[#E3E3E3] bg-white text-[14px] text-black focus:border-[#00A651] focus:ring-2 focus:ring-[#00A651]/20"
+                />
               </div>
 
               <div className="space-y-2">

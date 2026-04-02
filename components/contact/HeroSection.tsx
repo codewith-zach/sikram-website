@@ -20,14 +20,14 @@ export function HeroSection() {
             Sikram Foundation
           </div>
 
-          <h1 className="mt-10 font-display text-5xl leading-[0.98] tracking-[-0.06em] text-white sm:text-[3.7rem] md:text-[4.2rem] lg:text-[5.7rem]">
+          <h1 className="mt-10 font-display text-[32px] leading-[0.98] tracking-[-0.06em] text-white md:text-[64px]">
             <span className="block">We Are Always</span>
             <span className="mt-2 block">Here For You</span>
           </h1>
 
-          <p className="mx-auto mt-10 max-w-[840px] font-display text-lg leading-[1.5] tracking-[-0.03em] text-white/86 sm:text-xl md:text-[1.6rem] md:leading-[1.45]">
-          Whether you have a question, want to visit our eco-friendly 
-          developments in Monrovia, or are ready to make your move, our team is warm, 
+          <p className="mx-auto mt-10 max-w-[840px] font-display text-[16px] leading-[1.5] tracking-[-0.03em] text-white/86 md:text-[18px]">
+          Whether you have a question, want to visit our eco-friendly
+          developments in Monrovia, or are ready to make your move, our team is warm,
           professional, and ready to help you find your home in Liberia.
           </p>
         </div>

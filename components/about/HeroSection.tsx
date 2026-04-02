@@ -20,12 +20,12 @@ export function HeroSection() {
             Our Story
           </div>
 
-          <h1 className="mt-10 font-display text-5xl leading-[0.98] tracking-[-0.06em] text-white sm:text-[3.7rem] md:text-[4.2rem] lg:text-[5.7rem]">
+          <h1 className="mt-10 font-display text-[32px] leading-[0.98] tracking-[-0.06em] text-white md:text-[64px]">
             <span className="block">Driven by Purpose</span>
             <span className="mt-2 block">and Vision</span>
           </h1>
 
-          <p className="mx-auto mt-10 max-w-[840px] font-display text-lg leading-[1.5] tracking-[-0.03em] text-white/86 sm:text-xl md:text-[1.6rem] md:leading-[1.45]">
+          <p className="mx-auto mt-10 max-w-[840px] font-display text-[16px] leading-[1.5] tracking-[-0.03em] text-white/86 md:text-[18px]">
             Sikram Africa exists because Africa deserves better housing, and we
             are doing something about it.
           </p>

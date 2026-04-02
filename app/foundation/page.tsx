@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/foundation/AboutSection";
 import { GallerySection } from "@/components/foundation/GallerySection";
 import { PurposeSection } from "@/components/foundation/PurposeSection";
 import { CallToActionSection } from "@/components/foundation/CallToActionSection";
+import { QuoteSection } from "@/components/foundation/QuoteSection";
 import { ScrollReveal } from "@/components/shared";
 
 export default function FoundationPage() {
@@ -24,6 +25,9 @@ export default function FoundationPage() {
       </ScrollReveal>
       <ScrollReveal direction="up" delayMs={60}>
         <CallToActionSection />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delayMs={80}>
+        <QuoteSection />
       </ScrollReveal>
     </>
   );

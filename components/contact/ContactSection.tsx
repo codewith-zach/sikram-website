@@ -14,7 +14,7 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
 const contactDetails = [
   {
     title: "Office Address",
-    body: "Kpaja, Monrovia, Liberia, 1000",
+    body: "Kpanja Johnsonville, Liberia, 1000",
   },
   {
     title: "Email Address",
@@ -39,7 +39,7 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: '+61 ',
+    phone: '',
     subject: '',
     message: '',
   });
@@ -59,7 +59,7 @@ export function ContactSection() {
       });
 
       setSubmitStatus({ type: 'success', message: 'Message sent successfully! We\'ll get back to you soon.' });
-      setFormData({ fullName: '', email: '', phone: '+61 ', subject: '', message: '' });
+      setFormData({ fullName: '', email: '', phone: '', subject: '', message: '' });
     } catch {
       setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or contact us directly.' });
     } finally {
@@ -75,9 +75,9 @@ export function ContactSection() {
   };
 
   return (
-    <section aria-label="Contact information" className="bg-white">
-      <div className="mx-auto w-full max-w-[1440px] px-4 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 md:px-12 md:pb-24 xl:px-[80px] xl:pt-[72px]">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+    <section aria-label="Contact information" className="bg-white overflow-x-hidden">
+      <div className="mx-auto w-full max-w-[1440px] px-4 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 md:px-12 md:pb-24 xl:px-[80px] xl:pt-[72px] overflow-x-hidden">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12 overflow-x-hidden">
           <div className="flex flex-col gap-8">
             <div className="flex items-center gap-4 text-[#00A651] max-w-[540px]">
               <span className="shrink-0 text-[16px] font-medium uppercase">
@@ -176,8 +176,8 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="rounded-[18px] bg-[#F3F3F3] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="rounded-[18px] bg-[#F3F3F3] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] sm:p-8 overflow-x-hidden">
+            <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-full">
               {submitStatus.type && (
                 <div className={`rounded-[8px] p-4 text-[14px] ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                   {submitStatus.message}
@@ -228,7 +228,7 @@ export function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="485 696 123"
-                    className="h-full w-full bg-transparent text-[14px] text-black outline-none"
+                    className="h-full w-full max-w-full flex-1 bg-transparent text-[14px] text-black outline-none"
                   />
                 </div>
               </div>
@@ -277,7 +277,18 @@ export function ContactSection() {
           </div>
         </div>
 
-        <div className="mt-10 h-[240px] w-full rounded-[20px] bg-[#D9D9D9] sm:mt-14 sm:h-[300px] md:h-[360px]" />
+        <div className="mt-10 h-[240px] w-full overflow-hidden rounded-[20px] sm:mt-14 sm:h-[300px] md:h-[360px]">
+          <iframe
+            src="https://maps.google.com/maps?q=Kpanja+Johnsonville+Liberia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Google Maps - Kpanja Johnsonville Liberia"
+          />
+        </div>
       </div>
     </section>
   );

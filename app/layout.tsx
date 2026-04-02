@@ -33,10 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("h-full", "antialiased", spaceGrotesk.variable, sora.variable, "font-sans", geist.variable)}>
-      <body className="min-h-full overflow-x-hidden">
+      <body className="min-h-full">
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1 overflow-x-hidden">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>

@@ -86,12 +86,15 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-* {
-  box-sizing: border-box;
+html, body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
+  touch-action: pan-y;
 }
 
 ::selection {

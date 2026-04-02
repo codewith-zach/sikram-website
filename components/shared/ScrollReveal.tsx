@@ -1,6 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
 
 type RevealDirection = "left" | "right" | "up";
 
@@ -14,12 +16,12 @@ type ScrollRevealProps = {
 function getHiddenState(direction: RevealDirection) {
   switch (direction) {
     case "left":
-      return { opacity: 0, x: -40, y: 0 };
+      return { x: -40, opacity: 0 };
     case "right":
-      return { opacity: 0, x: 40, y: 0 };
+      return { x: 40, opacity: 0 };
     case "up":
     default:
-      return { opacity: 0, x: 0, y: 40 };
+      return { y: 40, opacity: 0 };
   }
 }
 
@@ -29,26 +31,44 @@ export function ScrollReveal({
   delayMs = 0,
   direction = "up",
 }: ScrollRevealProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
 
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
+  useGSAP(
+    () => {
+      const triggers: ScrollTrigger[] = [];
+
+      if (ref.current) {
+        gsap.set(ref.current, getHiddenState(direction));
+
+        const trigger = ScrollTrigger.create({
+          trigger: ref.current,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(ref.current, {
+              x: 0,
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: delayMs / 1000,
+              ease: "power3.out" as gsap.EaseString,
+            });
+          },
+        });
+
+        triggers.push(trigger);
+      }
+
+      return () => {
+        triggers.forEach((trigger) => trigger.kill());
+      };
+    },
+    { scope: ref }
+  );
 
   return (
-    <motion.div
-      className={className}
-      initial={getHiddenState(direction)}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
-      transition={{
-        delay: delayMs / 1000,
-        duration: 0.9,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      style={{ willChange: "transform, opacity" }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

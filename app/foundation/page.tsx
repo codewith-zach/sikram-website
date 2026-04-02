@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/foundation/HeroSection";
-import { PhilosophySection } from "@/components/foundation/PhilosophySection";
-import { SustainabilitySection } from "@/components/foundation/SustainabilitySection";
+import { WhatWeDoSection } from "@/components/foundation/PhilosophySection";
+import { AboutSection } from "@/components/foundation/AboutSection";
 import { GallerySection } from "@/components/foundation/GallerySection";
 import { ScrollReveal } from "@/components/shared";
 
@@ -9,10 +9,10 @@ export default function FoundationPage() {
     <>
       <HeroSection />
       <ScrollReveal direction="up">
-        <PhilosophySection />
+        <AboutSection />
       </ScrollReveal>
       <ScrollReveal direction="left" delayMs={40}>
-        <SustainabilitySection />
+        <WhatWeDoSection />
       </ScrollReveal>
       <ScrollReveal direction="right" delayMs={60}>
         <GallerySection />

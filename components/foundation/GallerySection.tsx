@@ -3,19 +3,19 @@ import Image from "next/image";
 const audienceCards = [
   {
     alt: "Sikram Foundation community program",
-    src: "/images/foundation/gallery.png",
+    src: "/images/foundation/img1.png",
   },
   {
     alt: "Sikram Foundation community program",
-    src: "/images/foundation/gallery.png",
+    src: "/images/foundation/img2.png",
   },
   {
     alt: "Sikram Foundation community program",
-    src: "/images/foundation/gallery.png",
+    src: "/images/foundation/img3.png",
   },
   {
     alt: "Sikram Foundation community program",
-    src: "/images/foundation/gallery.png",
+    src: "/images/foundation/img4.png",
   },
 ] as const;
 
@@ -45,10 +45,6 @@ export function GallerySection() {
             </span>
             <div className="h-px flex-1 bg-[#00A651]/35" />
           </div>
-
-          <h2 className="mt-6 font-display text-[28px] leading-[1.14] font-bold text-black sm:text-[34px] xl:text-[40px] xl:leading-[1.18]">
-            Lorem ipsum dolor sit 
-          </h2>
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:mt-[48px] xl:grid-cols-4">

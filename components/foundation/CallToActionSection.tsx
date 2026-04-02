@@ -47,12 +47,14 @@ export function CallToActionSection() {
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                href="/partner"
+                <a
+                href="https://wa.me/61485696123"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-[64px] items-center justify-center whitespace-nowrap rounded-[14px] bg-[#16a34a] px-8 font-sans text-[16px] font-semibold text-white transition hover:bg-[#15803d] sm:max-w-[280px]"
                 >
                 Partner With the Foundation
-                </Link>
+                </a>
 
                 <Link
                 href="/support"

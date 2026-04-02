@@ -8,10 +8,10 @@ const projectCards = [
   {
     alt: "Exterior view of Anaya Terrace",
     description:
-      "Anaya Terrace is a boutique row house development in BoysTown, Upper Margibi, Liberia - a small, carefully designed residential community comprising four homes, each offering comfortable, well-finished living spaces for families and individuals seeking quality and comfort.",
+      "Anaya Terrace is a boutique row house development in Boys Town, Upper Margibi, Liberia - a small, carefully designed residential community comprising four homes, each offering comfortable, well-finished living spaces for families and individuals seeking quality and comfort.",
     href: "/projects/anaya-terrace",
     imageClassName: "object-center",
-    location: "BoysTown, Upper Margibi",
+    location: "Boys Town, Upper Margibi",
     src: "/images/home/projects/anaya.png",
     tagline: "Quiet Living, Thoughtfully Designed.",
     title: "Anaya Terrace",

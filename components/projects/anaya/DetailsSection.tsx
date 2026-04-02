@@ -43,7 +43,7 @@ export function DetailsSection() {
               </p>
               <div className="space-y-4 font-display text-[14px] leading-[1.7] text-[#585858] sm:text-[15px]">
                 <p>
-                  Anaya Terrace is a boutique row house development in BoysTown,
+                  Anaya Terrace is a boutique row house development in Boys Town,
                   Upper Margibi, Liberia - a small, carefully designed
                   residential community comprising four homes, each offering
                   comfortable, well-finished living spaces for families and

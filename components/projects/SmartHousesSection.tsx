@@ -5,7 +5,7 @@ const houseCards = [
   {
     alt: "Exterior view of Bannah House",
     href: undefined,
-    location: "Kpaja, Monrovia",
+    location: "Schieffelin Town Margibi , Liberia",
     src: "/images/projects/smart_homes/bannah_house.png",
     title: "Bannah House",
   },
@@ -19,7 +19,7 @@ const houseCards = [
   {
     alt: "Exterior view of Zulu House",
     href: undefined,
-    location: "Kpaja, Monrovia",
+    location: "Foday’s Town Margibi , Liberia",
     src: "/images/projects/smart_homes/zulu_house.png",
     title: "Zulu House",
   },

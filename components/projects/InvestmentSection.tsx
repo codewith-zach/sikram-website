@@ -31,7 +31,7 @@ export function InvestmentSection() {
 
             <p className="mt-8 font-display text-[14px] leading-[22px] text-[#585858] xl:mt-10 xl:max-w-[31rem] xl:text-[16px] xl:leading-6">
               A Sikram Africa property is more than a beautiful home: it&apos;s
-              a smart real estate investment starting at $XXX,XXX in
+              a smart real estate investment starting at $25,000 in
               Liberia&apos;s booming market. Rapid urbanisation across Liberia
               is increasing demand for well-planned, sustainable housing faster
               than supply can keep up. Our developments are designed to meet

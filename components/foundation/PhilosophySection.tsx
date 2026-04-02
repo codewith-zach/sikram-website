@@ -20,19 +20,13 @@ export function WhatWeDoSection() {
             </h2>
 
             <div className="max-w-[572px] font-display text-[14px] leading-[22px] text-[#585858] xl:text-[16px] xl:leading-6">
-              <p className="m-0">
-              We have always believed that the art of living goes beyond the homes we build. 
-              True community development means investing in the people who live in those communities:  
-              their potential, their futures, and their ability to contribute to a stronger, more prosperous Africa.
+              <p className="m-0 font-bold">Education</p>
+              <p className=" mb-0">
+              We believe that access to quality education is the single most powerful tool for transforming a young person's life, and, by extension, an entire community. The Sikram Foundation supports educational initiatives that give youth the knowledge, skills, and confidence to build futures they are proud of.
               </p>
-              <p className="mt-[22px] mb-0 xl:mt-6">
-              The Sikram Foundation is the embodiment of that belief.
-              </p>
-              <p className="mt-[22px] mb-0 xl:mt-6">
-              Established as an integral part of the Sikram Africa family, 
-              the Foundation exists to empower youth through two core pillars: 
-              education and job creation. A well-built home means little in a community 
-              where young people lack access to learning and opportunity, and we are here to change that.
+              <p className="mt-[22px] mb-0 xl:mt-6 font-bold">Job Creation</p>
+              <p className="mb-0">
+              The Sikram Foundation is committed to creating meaningful employment opportunities for young people, whether through direct employment across our development sites, skills training programmes, or partnerships with local businesses and organisations.
               </p>
             </div>
           </div>
@@ -41,7 +35,7 @@ export function WhatWeDoSection() {
         <div className="w-full xl:order-2 xl:w-[710px] xl:shrink-0">
           <div className="relative h-[536px] w-full overflow-hidden xl:hidden">
             <Image
-              src="/images/foundation/sustainability.png"
+              src="/images/foundation/handshake.png"
               alt="Exterior of a modern apartment building with green balconies"
               fill
               className="object-cover object-left"
@@ -50,7 +44,7 @@ export function WhatWeDoSection() {
 
           <div className="relative hidden h-[750px] w-[710px] xl:block">
             <Image
-              src="/images/foundation/sustainability.png"
+              src="/images/foundation/handshake.png"
               alt="Exterior of a modern apartment building with green balconies"
               fill
               className="object-contain"

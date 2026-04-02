@@ -3,33 +3,89 @@ import Image from "next/image";
 const teamMembers = [
   {
     bio: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      `Markis Nebo is the Founder and CEO of Sikram Africa, where he leverages a rich educational
+      background and extensive experience to drive the company's mission. Holding a Bachelor's
+      degree in Business Management, Social Science, and Civil Engineering, Markis blends technical
+      proficiency with a deep understanding of human dynamics and organizational management.`,
+      `Markis Nebo is the Founder and CEO of Sikram Africa, where he leverages a rich educational
+      background and extensive experience to drive the company's mission. Holding a Bachelor's
+      degree in Business Management, Social Science, and Civil Engineering, Markis blends technical
+      proficiency with a deep understanding of human dynamics and organizational management.`,
     ],
     imageAlt: "Portrait of team member one",
-    imageSrc: "/images/about/Team/team1.png",
-    name: "John Doe",
+    imageSrc: "/images/about/Team/ceo.jpg",
+    name: "Markis Myers Nebo",
     role: "Chief Executive Officer",
   },
   {
     bio: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      `Macthony Nebo serves as the Chief Financial Officer at Sikram Africa, bringing a wealth of
+      expertise in accounting and financial management. With a Master's degree in Accounting and
+      Financial Management and credentials as a Chartered Registered Accountant, Macthony is
+      instrumental in shaping the financial strategies that drive the company's success.`,
+      `His strong analytical skills and strategic vision enable him to oversee financial operations, ensure
+      compliance, and optimize resource allocation. Macthony is committed to fostering transparency
+      and efficiency within the organization, playing a key role in Sikram Africa's growth and
+      sustainability. His leadership in finance is pivotal to achieving the company's long-term
+      objectives.`,
     ],
     imageAlt: "Portrait of team member two",
-    imageSrc: "/images/about/Team/team2.png",
-    name: "John Doe",
-    role: "Chief Executive Officer",
+    imageSrc: "/images/about/Team/cfo.JPG",
+    name: "Macthony Nebo",
+    role: "Chief Financial Officer",
   },
   {
     bio: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      `Usman Ghani is the Director of Design and Planning at Sikram Africa, where he oversees the
+      architectural department with a keen eye for innovation and detail. Holding a degree in
+      Architecture and Design, Usman brings over 10 years of diverse experience, having worked in his
+      home country of Pakistan as well as in the UAE and Liberia.`,
+      `His extensive background equips him with a unique perspective on architectural practices,
+      enabling him to lead projects that are both functional and aesthetically pleasing. Usman's
+      commitment to excellence drives his team to create impactful designs that align with Sikram
+      Africa's vision for sustainable development and growth. His leadership and expertise play a
+      crucial role in shaping the future of our architectural initiatives.`,
     ],
     imageAlt: "Portrait of team member three",
-    imageSrc: "/images/about/Team/team3.png",
-    name: "John Doe",
-    role: "Chief Executive Officer",
+    imageSrc: "/images/about/Team/design.jpg",
+    name: "Usman Ghani",
+    role: "Director of Design and Planning",
+  },
+  {
+    bio: [
+      `Glasco Myers Bloe is the Operations Manager at Sikram Africa, where he plays a vital role in
+      ensuring the seamless execution of day-to-day operations. With a strong background in
+      operational efficiency and project management, Glasco is dedicated to optimizing processes that
+      enhance productivity and drive success.`,
+      `His hands-on approach and keen problem-solving skills enable him to oversee various projects,
+      ensuring they align with the company's objectives. Glasco's commitment to fostering a
+      collaborative work environment helps build strong teams that are focused on achieving
+      excellence. His leadership is essential in navigating challenges and implementing innovative
+      solutions that support Sikram Africa's growth and operational excellence.`,
+    ],
+    imageAlt: "Portrait of team member three",
+    imageSrc: "/images/about/Team/operations.JPG",
+    name: "Glasco Myers Bloe",
+    role: "Operations Manager",
+  },
+  {
+    bio: [
+      `John Moses Adayilo serves as the Global Talent Acquisition Manager at Sikram Africa, where he
+      leverages his extensive experience in healthcare and the arts to foster a diverse and dynamic
+      workforce. Currently specializing in anesthesia as a nurse, John demonstrates a strong
+      commitment to compassionate care in critical situations.`,
+      `Beyond his medical expertise, he is a talented singer and songwriter, using music to connect with
+      and inspire others. Additionally, John contributes to the African entertainment industry as a
+      movie producer, bringing impactful stories to life.`,
+      `His hardworking and confident approach drives his efforts to empower and attract top talent for
+      Sikram Africa. John is passionate about harnessing Africa's limitless potential and aspires to
+      build a workforce that reflects diversity and innovation, contributing to the company's vision and
+      success.`
+    ],
+    imageAlt: "Portrait of team member three",
+    imageSrc: "/images/about/Team/talent.jpg",
+    name: "John Moses Adayilo",
+    role: "Global Talent Acquisition Manager",
   },
 ] as const;
 

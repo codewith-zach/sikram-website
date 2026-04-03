@@ -8,7 +8,15 @@ export function HeroSection() {
         alt="Community members gathered outdoors"
         fill
         priority
-        className="object-cover"
+        className="hidden sm:block object-cover"
+        sizes="100vw"
+      />
+      <Image
+        src="/images/foundation/mobile_hero.png"
+        alt="Community members gathered outdoors"
+        fill
+        priority
+        className="block sm:hidden object-cover"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/34" />

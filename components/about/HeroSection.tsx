@@ -8,7 +8,15 @@ export function HeroSection() {
         alt="Modern apartment buildings under a bright sky"
         fill
         priority
-        className="object-cover"
+        className="hidden sm:block object-cover"
+        sizes="100vw"
+      />
+      <Image
+        src="/images/about/hero/mobile_hero.png"
+        alt="Modern apartment buildings under a bright sky"
+        fill
+        priority
+        className="block sm:hidden object-cover"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/34" />

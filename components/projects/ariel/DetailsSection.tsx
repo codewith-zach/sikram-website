@@ -58,7 +58,7 @@ export function DetailsSection() {
                 we believe in: one that is healthy, beautiful, well-planned, and built to last.
                 </p>
                 <p>
-                Situated in Kpaja Johnsonville, Paynesville, approximately 20 to 30 minutes from 
+                Situated in Kpanja Johnsonville, Paynesville, approximately 20 to 30 minutes from 
                 the CBD of Monrovia, Ariel Terrace brings together architectural elegance, sustainable 
                 construction, and a genuine sense of community that Liberia has never seen before.
                 Every home on this estate has been designed with your comfort, your health, 

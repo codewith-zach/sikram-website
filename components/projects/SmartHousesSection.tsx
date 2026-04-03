@@ -12,7 +12,7 @@ const houseCards = [
   {
     alt: "Exterior view of Vlandee Guest House",
     href: "/projects/vlandee-guest-house",
-    location: "Kpaja Johnsonville, Paynesville",
+    location: "Kpanja Johnsonville, Paynesville",
     src: "/images/projects/smart_homes/vlandee_house.png",
     title: "Vlandee Guest House",
   },

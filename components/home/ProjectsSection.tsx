@@ -30,7 +30,7 @@ const projectCards = [
 ] as const;
 
 const featuredProjectMeta = [
-  { label: "Location", value: "Kpaja, Monrovia" },
+  { label: "Location", value: "Kpanja, Monrovia" },
   { label: "Type", value: "Residential · Mixed-Use" },
   { label: "Design", value: "Green-Built" },
   { label: "Status", value: "Launching Now" },
@@ -232,7 +232,7 @@ export function ProjectsSection() {
 
                 <p className="font-display text-[14px] leading-[1.58] text-[#9b9b9b] xl:max-w-[31rem] xl:text-[16px] xl:leading-[1.5]">
                   Ariel Terrace is our landmark green-built residential
-                  development in Kpaja, Monrovia — a bold statement about what
+                  development in Kpanja, Monrovia — a bold statement about what
                   modern real estate in Liberia can and should look like.
                   Featuring architecturally stunning homes, world-class
                   amenities, and a genuinely sustainable community atmosphere,

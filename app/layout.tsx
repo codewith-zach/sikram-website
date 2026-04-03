@@ -1,5 +1,5 @@
 import { Footer, Navbar } from "@/components/shared";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sora, Space_Grotesk, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -26,6 +26,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,9 +40,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("h-full", "antialiased", spaceGrotesk.variable, sora.variable, "font-sans", geist.variable)}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      </head>
       <body className="min-h-full">
         <div className="flex min-h-screen flex-col">
           <Navbar />

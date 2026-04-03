@@ -25,7 +25,7 @@ export function HeroSection() {
       <div className="relative mx-auto flex min-h-[min(78vw,720px)] w-full max-w-[1440px] items-center justify-center px-5 py-20 text-center sm:px-8 md:px-12 xl:px-[76px] xl:py-28">
         <div className="max-w-[980px] text-white">
           <div className="inline-flex items-center justify-center rounded-full bg-white/12 px-7 py-3 text-sm font-medium uppercase tracking-[0.03em] text-white/92 backdrop-blur-[8px] sm:text-base">
-            Sikram Foundation
+            Contact
           </div>
 
           <h1 className="mt-10 font-display text-[32px] leading-[0.98] tracking-[-0.06em] text-white md:text-[64px]">

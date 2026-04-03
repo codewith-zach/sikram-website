@@ -22,7 +22,7 @@ export function WhatWeDoSection() {
             <div className="max-w-[572px] font-display text-[14px] leading-[22px] text-[#585858] xl:text-[16px] xl:leading-6">
               <p className="m-0 font-bold">Education</p>
               <p className=" mb-0">
-              We believe that access to quality education is the single most powerful tool for transforming a young person's life, and, by extension, an entire community. The Sikram Foundation supports educational initiatives that give youth the knowledge, skills, and confidence to build futures they are proud of.
+              We believe that access to quality education is the single most powerful tool for transforming a young person&apos;s life, and, by extension, an entire community. The Sikram Foundation supports educational initiatives that give youth the knowledge, skills, and confidence to build futures they are proud of.
               </p>
               <p className="mt-[22px] mb-0 xl:mt-6 font-bold">Job Creation</p>
               <p className="mb-0">

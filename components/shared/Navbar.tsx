@@ -11,9 +11,10 @@ const navItems = [
   { href: "/projects", label: "Projects" },
   { href: "/foundation", label: "Foundation" },
   { href: "/contact", label: "Contact" },
+  { href: "https://docs.google.com/forms/d/e/1FAIpQLSdleitNBu3DzGC7FNZOCIsg_gTFDjmyrVju6-gTJSGPel6L5Q/viewform?usp=publish-editor", label: "Referral", external: true },
 ];
 
-type NavItem = (typeof navItems)[number];
+type NavItem = (typeof navItems)[number] & { external?: boolean };
 
 function DesktopNavItem({
   currentPath,
@@ -35,11 +36,21 @@ function DesktopNavItem({
       ? "text-white"
       : "text-white hover:text-[#173052]";
 
-  return (
-    <Link href={item.href} className={`${baseClassName} ${colorClassName}`}>
+  const content = (
+    <span className={`${baseClassName} ${colorClassName}`}>
       {item.label}
-    </Link>
+    </span>
   );
+
+  if (item.external) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return <Link href={item.href}>{content}</Link>;
 }
 
 function MobileNavItem({
@@ -63,6 +74,14 @@ function MobileNavItem({
     : `block rounded-[20px] px-5 py-4 text-lg font-medium uppercase tracking-[0.08em] transition ${
         isActive ? "bg-white/12 text-white" : "text-white hover:bg-white/10"
       }`;
+
+  if (item.external) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onSelect}>
+        {item.label}
+      </a>
+    );
+  }
 
   return (
     <Link href={item.href} className={className} onClick={onSelect}>

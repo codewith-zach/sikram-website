@@ -19,10 +19,10 @@ export function PurposeSection() {
   
           <div className="mt-10 max-w-[760px] font-display text-[14px] leading-[22px] text-[#585858] xl:mt-0 xl:pl-[72px] xl:text-[16px] xl:leading-6">
             <p className="m-0">
-            Africa is a continent of extraordinary potential, and its greatest asset is its youth. A young, ambitious, and growing population that deserves access to the tools, training, and opportunities that will allow them to lead the next chapter of this continent's story.
+            Africa is a continent of extraordinary potential, and its greatest asset is its youth. A young, ambitious, and growing population that deserves access to the tools, training, and opportunities that will allow them to lead the next chapter of this continent&apos;s story.
             </p>
             <p className="mt-[22px] mb-0 xl:mt-3">
-            The Sikram Foundation exists because we recognise that a property developer's responsibility does not end at the boundary of its estates. The communities we build are part of something wider; and that wider world is only as strong as the people within it.
+            The Sikram Foundation exists because we recognise that a property developer&apos;s responsibility does not end at the boundary of its estates. The communities we build are part of something wider; and that wider world is only as strong as the people within it.
             </p>
           </div>
         </div>

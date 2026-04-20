@@ -53,23 +53,6 @@ const teamMembers = [
   },
   {
     bio: [
-      `Glasco Myers Bloe is the Operations Manager at Sikram Africa, where he plays a vital role in
-      ensuring the seamless execution of day-to-day operations. With a strong background in
-      operational efficiency and project management, Glasco is dedicated to optimizing processes that
-      enhance productivity and drive success.`,
-      `His hands-on approach and keen problem-solving skills enable him to oversee various projects,
-      ensuring they align with the company's objectives. Glasco's commitment to fostering a
-      collaborative work environment helps build strong teams that are focused on achieving
-      excellence. His leadership is essential in navigating challenges and implementing innovative
-      solutions that support Sikram Africa's growth and operational excellence.`,
-    ],
-    imageAlt: "Portrait of team member three",
-    imageSrc: "/images/about/Team/operations.JPG",
-    name: "Glasco Myers Bloe",
-    role: "Operations Manager",
-  },
-  {
-    bio: [
       `John Moses Adayilo serves as the Global Talent Acquisition Manager at Sikram Africa, where he
       leverages his extensive experience in healthcare and the arts to foster a diverse and dynamic
       workforce. Currently specializing in anesthesia as a nurse, John demonstrates a strong

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function CallToActionSection() {
   return (
@@ -36,12 +37,12 @@ export function CallToActionSection() {
               Contact Sikram Africa today and let us help you find your place in the most exciting eco-friendly properties in Liberia
               </p>
 
-              <button
-                type="button"
+              <Link
+                href="/contact"
                 className="mt-10 inline-flex h-[70px] w-full items-center justify-center rounded-[14px] bg-[#00A651] px-8 font-sans text-[17px] font-semibold text-white transition hover:bg-[#00A651]/90 md:mt-11 md:h-[58px] md:w-[271px] md:rounded-[12px] md:text-[16px]"
               >
                 Contact Us Today
-              </button>
+              </Link>
             </div>
           </div>
         </div>

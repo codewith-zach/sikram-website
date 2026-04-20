@@ -175,7 +175,7 @@ export function Footer() {
           <div className="mt-9 border-t border-white/35 pt-6 md:mt-12 md:pt-7 xl:mt-[92px] xl:pt-[58px]">
             <div className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
               <p className="font-display text-[16px] leading-[1.5] text-white/92 md:text-[18px]">
-                &copy; 2024 Sikram Africa. All rights reserved
+                &copy; 2026 Sikram Africa. All rights reserved
               </p>
               <p className="font-display text-[16px] leading-[1.5] uppercase tracking-[-0.03em] text-white/92 md:text-[18px] xl:text-right">
                 Africa&apos;s Future, <span className="font-bold text-white">Built Today.</span>

@@ -56,12 +56,14 @@ export function CallToActionSection() {
                 Partner With the Foundation
                 </a>
 
-                <Link
-                href="/support"
+                <a
+                href="https://wa.me/61485696123"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-[64px] items-center justify-center whitespace-nowrap rounded-[14px] border border-[#16a34a] bg-white px-8 font-sans text-[16px] font-semibold text-[#16a34a] transition hover:bg-[#f0fdf4] sm:max-w-[280px]"
                 >
                 Support the Foundation
-                </Link>
+                </a>
             </div>
             </div>
           </div>
